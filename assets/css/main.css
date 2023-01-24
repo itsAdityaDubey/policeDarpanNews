@@ -1,0 +1,177 @@
+a:hover {
+    color: #cbd3d3 !important;
+}
+/* You can add global styles to this file, and also import other style files */
+@media (min-width: 999px) {
+
+    /* Scroll Bar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f2f2f2;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #1b4481;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #113975;
+    }
+}
+
+body {
+    background-color: #e6e7e8 !important;
+}
+
+#brandLogo {
+    display: block;
+    position: absolute;
+    z-index: 1021;
+    pointer-events: none;
+}
+
+#brandLogoText {
+    margin-right: 50px;
+    text-shadow: 1px 0 #FF0000, -1px 0 #FF0000, 0 1px #FF0000, 0 -1px #FF0000,
+        0.5px 0.5px #FF0000, -0.5px -0.5px #FF0000, 0.5px -0.5px #FF0000, -0.5px 0.5px #FF0000;
+}
+
+.navSocial {
+    background-color: black;
+}
+
+.navItem {
+    margin: 20px;
+    -webkit-transition: color 1s;
+    /* For Safari 3.0 to 6.0 */
+    transition: color 1s;
+    /* For modern browsers */
+}
+
+.navItem:hover {
+    color: #ff0000;
+}
+
+.breaking {
+    font-size: 16px;
+    background-color: #000000;
+}
+
+
+.banner-content {
+    position: absolute;
+    padding: 40px 60px;
+    padding-top: 6em;
+    left: 0px;
+    bottom: 0px;
+    color: #ffffff;
+    border-radius: 0em 0em 0.4em 0.4em;
+    background: linear-gradient(180deg, #ffffff00 0%, #27272772 12%, #000000 100%);
+}
+
+.border-bottom-blue {
+    border-bottom: solid 1px #032a63;
+}
+
+.lnbody {
+    padding: 2.5rem 2.5rem 1rem 2.5rem;
+}
+
+.row {
+    margin-top: 3em;
+}
+
+.card,
+.card-body,
+.banner-content,
+.card img {
+    border-radius: 0.4em;
+}
+
+@media (max-width: 999px) {
+    .banner-content {
+        padding: 12px 12px;
+    }
+
+    .banner-content h2,
+    h3 {
+        font-size: 18px;
+    }
+}
+
+.vertical-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vertical-menu li a {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.31;
+    letter-spacing: normal;
+    color: #ababac;
+    padding: 10.5px 0;
+    display: block;
+}
+
+.vertical-menu li a:hover,
+.vertical-menu li a:focus,
+.vertical-menu li a.active {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+}
+
+.vmbody {
+    padding: 2.5em;
+}
+
+.card,
+.card-body {
+    border-radius: 0.4em;
+}
+
+.vmbody h4 {
+    color: #3a3a3a;
+}
+
+.badge-positioned {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+}
+
+.news-img img {
+    border-radius: 0.7em;
+}
+
+.news-img img {
+    border-radius: 0.7em;
+}
+
+.footer {
+    background: #032a63;
+    padding: 74px 0 48px 0;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.footer .input-group {
+    max-width: 528px;
+}
+@media (min-width: 999px) {
+.hideOverflowText {
+    display: block;
+    width: 100%;
+    height: 35px;
+    overflow: hidden;
+}
+}
