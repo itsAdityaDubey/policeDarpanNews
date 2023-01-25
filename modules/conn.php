@@ -3,7 +3,7 @@ function OpenCon()
  {
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "FBXuHoYVC5N3xc";
     $dbname = "news";
     
     // Create connection
