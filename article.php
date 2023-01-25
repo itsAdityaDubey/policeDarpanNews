@@ -1,4 +1,3 @@
-
 <?php
     include './modules/newsalgos.php';
     $conn = OpenCon();
@@ -54,41 +53,41 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="canonical" href="https://policedarpannews.in/">
     <style>
-    .hytPlayerWrap {
-        display: inline-block;
-        position: relative;
-    }
+        .hytPlayerWrap {
+            display: inline-block;
+            position: relative;
+        }
 
-    .hytPlayerWrap.ended::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        cursor: pointer;
-        background-color: black;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 64px 64px;
-        background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgNTEwIDUxMCI+PHBhdGggZD0iTTI1NSAxMDJWMEwxMjcuNSAxMjcuNSAyNTUgMjU1VjE1M2M4NC4xNSAwIDE1MyA2OC44NSAxNTMgMTUzcy02OC44NSAxNTMtMTUzIDE1My0xNTMtNjguODUtMTUzLTE1M0g1MWMwIDExMi4yIDkxLjggMjA0IDIwNCAyMDRzMjA0LTkxLjggMjA0LTIwNC05MS44LTIwNC0yMDQtMjA0eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==);
-    }
+        .hytPlayerWrap.ended::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            cursor: pointer;
+            background-color: black;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 64px 64px;
+            background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgNTEwIDUxMCI+PHBhdGggZD0iTTI1NSAxMDJWMEwxMjcuNSAxMjcuNSAyNTUgMjU1VjE1M2M4NC4xNSAwIDE1MyA2OC44NSAxNTMgMTUzcy02OC44NSAxNTMtMTUzIDE1My0xNTMtNjguODUtMTUzLTE1M0g1MWMwIDExMi4yIDkxLjggMjA0IDIwNCAyMDRzMjA0LTkxLjggMjA0LTIwNC05MS44LTIwNC0yMDQtMjA0eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==);
+        }
 
-    .hytPlayerWrap.paused::after {
-        content: "";
-        position: absolute;
-        top: 70px;
-        left: 0;
-        bottom: 50px;
-        right: 0;
-        cursor: pointer;
-        /* background-color: black; */
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 40px 40px;
-        background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSIxNzA2LjY2NyIgaGVpZ2h0PSIxNzA2LjY2NyIgdmlld0JveD0iMCAwIDEyODAgMTI4MCI+PHBhdGggZD0iTTE1Ny42MzUgMi45ODRMMTI2MC45NzkgNjQwIDE1Ny42MzUgMTI3Ny4wMTZ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+);
-    }
-</style>
+        .hytPlayerWrap.paused::after {
+            content: "";
+            position: absolute;
+            top: 70px;
+            left: 0;
+            bottom: 50px;
+            right: 0;
+            cursor: pointer;
+            /* background-color: black; */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40px 40px;
+            background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSIxNzA2LjY2NyIgaGVpZ2h0PSIxNzA2LjY2NyIgdmlld0JveD0iMCAwIDEyODAgMTI4MCI+PHBhdGggZD0iTTE1Ny42MzUgMi45ODRMMTI2MC45NzkgNjQwIDE1Ny42MzUgMTI3Ny4wMTZ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+);
+        }
+    </style>
 </head>
 
 <body>
@@ -231,26 +230,44 @@
                 <div class="col pe-5">
                     <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
                         <?php getBreaking('Tecnology'); if($Id!=''){?>
-                        <span role="button" title="Click to Read More" onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
-                        <span class="badge bg-primary mx-2">Tecnology</span> <?php echo $Title ?></span>
+                        <span role="button" title="Click to Read More"
+                            onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
+                            <span class="badge bg-primary mx-2">Tecnology</span>
+                            <?php echo $Title ?>
+                        </span>
                         <?php }getBreaking('Business'); if($Id!=''){?>
-                        <span role="button" title="Click to Read More" onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
-                        <span class="badge bg-secondary mx-2">Business</span><?php echo $Title ?></span>
+                        <span role="button" title="Click to Read More"
+                            onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
+                            <span class="badge bg-secondary mx-2">Business</span>
+                            <?php echo $Title ?>
+                        </span>
                         <?php }getBreaking('Sports'); if($Id!=''){?>
-                        <span role="button" title="Click to Read More" onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
-                        <span class="badge bg-success mx-2">Sports</span> <?php echo $Title ?></span>
+                        <span role="button" title="Click to Read More"
+                            onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
+                            <span class="badge bg-success mx-2">Sports</span>
+                            <?php echo $Title ?>
+                        </span>
                         <?php }getBreaking('Politics'); if($Id!=''){?>
-                        <span role="button" title="Click to Read More" onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
-                        <span class="badge bg-danger mx-2">Politics</span> <?php echo $Title ?></span>
+                        <span role="button" title="Click to Read More"
+                            onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
+                            <span class="badge bg-danger mx-2">Politics</span>
+                            <?php echo $Title ?>
+                        </span>
                         <?php }getBreaking('Travel'); if($Id!=''){?>
-                        <span role="button" title="Click to Read More" onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
-                        <span class="badge bg-warning text-dark mx-2">Travel</span> <?php echo $Title ?></span>
+                        <span role="button" title="Click to Read More"
+                            onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
+                            <span class="badge bg-warning text-dark mx-2">Travel</span>
+                            <?php echo $Title ?>
+                        </span>
                         <?php }getBreaking('Entertainment'); if($Id!=''){?>
-                        <span role="button" title="Click to Read More" onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
-                        <span class="badge bg-info text-dark mx-2">Entertainment</span> <?php echo $Title ?></span>
+                        <span role="button" title="Click to Read More"
+                            onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
+                            <span class="badge bg-info text-dark mx-2">Entertainment</span>
+                            <?php echo $Title ?>
+                        </span>
                         <?php } ?>
                         <!-- <span class="badge bg-dark">Dark</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. -->
-                      </marquee>
+                    </marquee>
                 </div>
             </div>
         </div>
@@ -258,10 +275,10 @@
     <div class="content-wrapper mb-4">
         <div class="container">
             <div class="row">
-            <div class="col-sm-8 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
+                <div class="col-sm-8 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
                                 <div>
                                     <?php if($YoutubeId!=''){ ?>
                                     <div class="hytPlayerWrapOuter">
@@ -274,92 +291,115 @@
                                     <?php } ?>
 
                                     <?php if($ImgListSize>0){ ?>
-                                    <div id="carouselExampleIndicators" class="carousel slide mb-2" data-bs-ride="carousel">
+                                    <div id="carouselExampleIndicators" class="carousel slide mb-2"
+                                        data-bs-ride="carousel">
+                                        <?php if ($ImgListSize>1) { ?>
                                         <div class="carousel-indicators">
-                                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                data-bs-slide-to="0" class="active" aria-current="true"
+                                                aria-label="Slide 1"></button>
+                                            <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                            <button type="button" data-bs-target="#carouselExampleIndicators"
+                                                data-bs-slide-to="2" aria-label="Slide 3"></button>
                                         </div>
+                                        <?php } ?>
                                         <div class="carousel-inner">
-                                        <?php for ($i=1; $i < $ImgListSize; $i++) { ?>
-                                          <div class="carousel-item <?php if($i==1){echo 'active';}?>">
-                                            <img src="./images/<?php echo $_GET['a']."_".($i-1); ?>.jpg" class="d-block w-100" alt="Article Image 1">
-                                          </div>
-                                          <?php } ?>
+                                            <?php for ($i=1; $i <= $ImgListSize; $i++) { ?>
+                                            <div class="carousel-item <?php if($i==1){echo 'active';}?>">
+                                                <img src="./images/<?php echo $_GET['a']."_".($i-1); ?>.jpg"
+                                                class="d-block w-100" alt="Article Image 1">
+                                            </div>
+                                            <?php } ?>
                                         </div>
-                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                          <span class="visually-hidden">Previous</span>
+                                        <?php if ($ImgListSize>1) { ?>
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
                                         </button>
-                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                          <span class="visually-hidden">Next</span>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
                                         </button>
-                                      </div>
-                                      <?php } ?>
-                                    <h3 class="font-weight-600 mb-1">
-                                        <?php echo $Title; ?>
-                                    </h3>
-                                    <div class="row my-3">
-                                        <div class="col-sm-4  d-none d-md-block ">
-                                            <div class="row">
-                                                <div class="col-2">
-                                                    <span class="material-icons text-primary"
-                                                        style="font-size: min(16vw, 52px);">account_circle</span>
-                                                </div>
-                                                <div class="col-10 pt-1 ps-4">
-                                                    <h5 class="fw-bold mb-0">Police Darpan<i
-                                                            class="material-icons small text-success ms-1">verified</i>
-                                                    </h5>
-                                                    <span class="fs-13 text-muted"><?php echo $Category; ?></span>
-                                                </div>
+                                    </div>
+                                    <?php } ?>
+                                </div>
+                                <?php } ?>
+                                <h3 class="font-weight-600 mb-1">
+                                    <?php echo $Title; ?>
+                                </h3>
+                                <div class="row my-3">
+                                    <div class="col-sm-4  d-none d-md-block ">
+                                        <div class="row">
+                                            <div class="col-2">
+                                                <span class="material-icons text-primary"
+                                                    style="font-size: min(16vw, 52px);">account_circle</span>
+                                            </div>
+                                            <div class="col-10 pt-1 ps-4">
+                                                <h5 class="fw-bold mb-0">Police Darpan<i
+                                                        class="material-icons small text-success ms-1">verified</i>
+                                                </h5>
+                                                <span class="fs-13 text-muted">
+                                                    <?php echo $Category; ?>
+                                                </span>
                                             </div>
                                         </div>
-                                        <div class="col-sm-8">
-                                            <span class="fs-13 ms-2 fw-bold float-sm-end"><?php echo $District; ?></span><br>
-                                            <span class="fs-13 text-muted ms-2 float-sm-end"><?php echo $Date; ?></span>
-                                        </div>
                                     </div>
-                                    <p class="mb-4 fs-15">
-                                        <?php echo $Article; ?>
-                                    </p>
+                                    <div class="col-sm-8">
+                                        <span class="fs-13 ms-2 fw-bold float-sm-end">
+                                            <?php echo $District; ?>
+                                        </span><br>
+                                        <span class="fs-13 text-muted ms-2 float-sm-end">
+                                            <?php echo $Date; ?>
+                                        </span>
+                                    </div>
                                 </div>
+                                <p class="mb-4 fs-15">
+                                    <?php echo $Article; ?>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
-                                <div class="trending">
-                                    <h4 class="mb-4 text-primary font-weight-600">
-                                        Trending
-                                    </h4>
-                                    <?php for ($i=0; $i < 3; $i++) { articleData($trendsIds[$i]);?>
-                                    <div role="button" title="Click to Read More"
-                                    onclick="window.location.href ='./article.php?a=<?php echo $trendsIds[$i]; ?>'" class="mb-4">
+                            <div class="trending">
+                                <h4 class="mb-4 text-primary font-weight-600">
+                                    Trending
+                                </h4>
+                                <?php for ($i=0; $i < 3; $i++) { articleData($trendsIds[$i]);?>
+                                <div role="button" title="Click to Read More"
+                                    onclick="window.location.href ='./article.php?a=<?php echo $trendsIds[$i]; ?>'"
+                                    class="mb-4">
                                     <div class="ratio ratio-16x9">
-                                            <img src="<?php echo $thumbnailUrl; ?>" style="object-fit: cover;" alt="banner"
-                                                class="img-fluid" />
-                                        </div>
-                                        <h5 class="mt-3 font-weight-600">
-                                            <?php echo $Title; ?>
-                                        </h5>
-                                        <p class="fs-6 text-muted mb-0">
-                                            <span class="mr-2"><?php echo $District; ?> </span><?php echo $Date; ?>
-                                        </p>
+                                        <img src="<?php echo $thumbnailUrl; ?>" style="object-fit: cover;" alt="banner"
+                                            class="img-fluid" />
                                     </div>
-                                    <?php $idCounter++; } ?>
+                                    <h5 class="mt-3 font-weight-600">
+                                        <?php echo $Title; ?>
+                                    </h5>
+                                    <p class="fs-6 text-muted mb-0">
+                                        <span class="mr-2">
+                                            <?php echo $District; ?>
+                                        </span>
+                                        <?php echo $Date; ?>
+                                    </p>
                                 </div>
-                            </div>
+                                <?php $idCounter++; } ?>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
     </div>
     </div>
     <div class="container-fluid text-light footer">
@@ -368,7 +408,9 @@
                 <div class="col-sm-6 mb-3">
                     <a class="navbar-brand text-light fw-bolder" href="#" style="margin-right: 50px;">Police Darpan</a>
                     <h6 class="font-weight-normal mt-4 mb-5">
-                        Police Darpan is a humble endeavor to cater to the population of North India spread across the Globe. This is an online newspaper that concentrates on local news from every nook and corner of North India and also of news pertaining to people from the North India spread across the globe.
+                        Police Darpan is a humble endeavor to cater to the population of North India spread across the
+                        Globe. This is an online newspaper that concentrates on local news from every nook and corner of
+                        North India and also of news pertaining to people from the North India spread across the globe.
                     </h6>
                     <a href="#" class="badge bg-white navSocial me-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#032a63"
@@ -431,59 +473,59 @@
     </div>
 
     <script>
-  "use strict";
-  document.addEventListener('DOMContentLoaded', function() {
-      // Activate only if not already activated
-      if (window.hideYTActivated) return;
-      // Activate on all players
-      let onYouTubeIframeAPIReadyCallbacks = [];
-      for (let playerWrap of document.querySelectorAll(".hytPlayerWrap")) {
-          let playerFrame = playerWrap.querySelector("iframe");
+        "use strict";
+        document.addEventListener('DOMContentLoaded', function () {
+            // Activate only if not already activated
+            if (window.hideYTActivated) return;
+            // Activate on all players
+            let onYouTubeIframeAPIReadyCallbacks = [];
+            for (let playerWrap of document.querySelectorAll(".hytPlayerWrap")) {
+                let playerFrame = playerWrap.querySelector("iframe");
 
-          let tag = document.createElement('script');
-          tag.src = "https://www.youtube.com/iframe_api";
-          let firstScriptTag = document.getElementsByTagName('script')[0];
-          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                let tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/iframe_api";
+                let firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-          let onPlayerStateChange = function(event) {
-              if (event.data == YT.PlayerState.ENDED) {
-                  playerWrap.classList.add("ended");
-              } else if (event.data == YT.PlayerState.PAUSED) {
-                  playerWrap.classList.add("paused");
-              } else if (event.data == YT.PlayerState.PLAYING) {
-                  playerWrap.classList.remove("ended");
-                  playerWrap.classList.remove("paused");
-              }
-          };
+                let onPlayerStateChange = function (event) {
+                    if (event.data == YT.PlayerState.ENDED) {
+                        playerWrap.classList.add("ended");
+                    } else if (event.data == YT.PlayerState.PAUSED) {
+                        playerWrap.classList.add("paused");
+                    } else if (event.data == YT.PlayerState.PLAYING) {
+                        playerWrap.classList.remove("ended");
+                        playerWrap.classList.remove("paused");
+                    }
+                };
 
-          let player;
-          onYouTubeIframeAPIReadyCallbacks.push(function() {
-              player = new YT.Player(playerFrame, {
-                  events: {
-                      'onStateChange': onPlayerStateChange
-                  }
-              });
-          });
+                let player;
+                onYouTubeIframeAPIReadyCallbacks.push(function () {
+                    player = new YT.Player(playerFrame, {
+                        events: {
+                            'onStateChange': onPlayerStateChange
+                        }
+                    });
+                });
 
-          playerWrap.addEventListener("click", function() {
-              let playerState = player.getPlayerState();
-              if (playerState == YT.PlayerState.ENDED) {
-                  player.seekTo(0);
-              } else if (playerState == YT.PlayerState.PAUSED) {
-                  player.playVideo();
-              }
-          });
-      }
+                playerWrap.addEventListener("click", function () {
+                    let playerState = player.getPlayerState();
+                    if (playerState == YT.PlayerState.ENDED) {
+                        player.seekTo(0);
+                    } else if (playerState == YT.PlayerState.PAUSED) {
+                        player.playVideo();
+                    }
+                });
+            }
 
-      window.onYouTubeIframeAPIReady = function() {
-          for (let callback of onYouTubeIframeAPIReadyCallbacks) {
-              callback();
-          }
-      };
+            window.onYouTubeIframeAPIReady = function () {
+                for (let callback of onYouTubeIframeAPIReadyCallbacks) {
+                    callback();
+                }
+            };
 
-      window.hideYTActivated = true;
-  });
-</script>
+            window.hideYTActivated = true;
+        });
+    </script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"

@@ -187,8 +187,10 @@
             <?php }getBreaking('Entertainment'); if($Id!=''){?>
             <span role="button" title="Click to Read More" onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
             <span class="badge bg-info text-dark mx-2">Entertainment</span> <?php echo $Title ?></span>
+            <?php }getBreaking('Crime'); if($Id!=''){?>
+            <span role="button" title="Click to Read More" onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
+            <span class="badge bg-dark mx-2">Crime</span> <?php echo $Title ?></span>
             <?php } ?>
-            <!-- <span class="badge bg-dark">Dark</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. -->
           </marquee>
         </div>
       </div>
