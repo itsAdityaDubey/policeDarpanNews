@@ -3,7 +3,7 @@
   getArticleIds();
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="">
 
 <head>
   <meta charset="utf-8">
