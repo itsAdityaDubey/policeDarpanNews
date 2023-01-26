@@ -145,7 +145,16 @@
         }
         $row = mysqli_fetch_assoc($result);
 
-        $id = $_GET['a'];
+        global $id;
+        global $Title;
+        global $Article;
+        global $ImgListSize;
+        global $YoutubeId;
+        global $Date;
+        global $District;
+        global $Category;
+        global $id;
+
         $Title = $row['Title'];
         $Article = $row['Article'];
         $ImgListSize = $row['ImgListSize'];

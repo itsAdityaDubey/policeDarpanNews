@@ -288,7 +288,7 @@
                                             <?php for ($i=1; $i <= $ImgListSize; $i++) { ?>
                                             <div class="carousel-item <?php if($i==1){echo 'active';}?>">
                                                 <img src="./images/<?php echo $_GET['a']."_".($i-1); ?>.jpg"
-                                                class="d-block w-100" alt="Article Image 1">
+                                                class="d-block w-100" alt="Article Image <?php echo $i; ?>">
                                             </div>
                                             <?php } ?>
                                         </div>
