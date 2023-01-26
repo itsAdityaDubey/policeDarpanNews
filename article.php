@@ -1,27 +1,6 @@
 <?php
     include './modules/newsalgos.php';
-    $conn = OpenCon();
-
-    $sql = "SELECT * FROM `Articles` WHERE `Id`='".$_GET['a']."';";
-
-    $result = mysqli_query($conn,$sql);
-
-    if (!$result) {
-        echo "Could not successfully run query ($sql) from DB: " . mysqli_error();
-        exit;
-    }
-    $row = mysqli_fetch_assoc($result);
-
-    $id = $_GET['a'];
-    $Title = $row['Title'];
-    $Article = $row['Article'];
-    $ImgListSize = $row['ImgListSize'];
-    $YoutubeId = $row['YoutubeId'];
-    $Date = $row['Date'];
-    $District = $row['District'];
-    $Category = $row['Category'];
-
-    CloseCon($conn);
+    
     getTrandingIds(3);
     viewCounter($_GET['a']);
 ?>
