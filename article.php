@@ -274,6 +274,7 @@
     </div>
     <div class="content-wrapper mb-4">
         <div class="container">
+            <?php getFullArticle($_GET['a']); ?>
             <div class="row">
                 <div class="col-sm-8 mb-3">
                     <div class="card">
