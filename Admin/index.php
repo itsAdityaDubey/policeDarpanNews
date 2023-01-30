@@ -8,8 +8,8 @@
   <meta property="og:title" content="Police Darpan | Log In">
   <meta property="og:description" content="News Management System (Designed with ♥ by Aditya Dubey)"/>
   <meta property="og:image" content="http://www.policedarpannews.in/Admin/assets/img/logoRound.png">
-  <meta property="og:image:width" content="441"/>
-  <meta property="og:image:height" content="441"/>
+  <meta property="og:image:width" content="141"/>
+  <meta property="og:image:height" content="141"/>
   <meta property="og:image:alt" content="Police Darpan"/>
   <meta property="og:type" content="Website"/>
   <meta property="og:url" content="http://www.policedarpannews.in/Admin/"/>
