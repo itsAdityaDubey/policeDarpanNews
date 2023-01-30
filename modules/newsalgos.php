@@ -154,6 +154,11 @@
         global $District;
         global $Category;
         global $id;
+        global $ImgCap1;
+        global $ImgCap2;
+        global $ImgCap3;
+        global $ImgCap4;
+        global $ImgCap5;
 
         $Title = $row['Title'];
         $Article = $row['Article'];
@@ -162,6 +167,11 @@
         $Date = $row['Date'];
         $District = $row['District'];
         $Category = $row['Category'];
+        $ImgCap1=$row['ImgCap1'];
+        $ImgCap2=$row['ImgCap2'];
+        $ImgCap3=$row['ImgCap3'];
+        $ImgCap4=$row['ImgCap4'];
+        $ImgCap5=$row['ImgCap5'];
 
         CloseCon($conn);
     }

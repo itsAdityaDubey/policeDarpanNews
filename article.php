@@ -139,7 +139,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand text-light fw-bolder" href="#"
+                    <a class="navbar-brand text-light fw-bolder" href="./"
                         id="brandLogoText">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
                     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -273,22 +273,16 @@
                                     <?php if($ImgListSize>0){ ?>
                                     <div id="carouselExampleIndicators" class="carousel slide mb-2"
                                         data-bs-ride="carousel">
-                                        <?php if ($ImgListSize>1) { ?>
-                                        <div class="carousel-indicators">
-                                            <button type="button" data-bs-target="#carouselExampleIndicators"
-                                                data-bs-slide-to="0" class="active" aria-current="true"
-                                                aria-label="Slide 1"></button>
-                                            <button type="button" data-bs-target="#carouselExampleIndicators"
-                                                data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                            <button type="button" data-bs-target="#carouselExampleIndicators"
-                                                data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                        </div>
-                                        <?php } ?>
-                                        <div class="carousel-inner">
+                                        <div class="carousel-inner rounded bg-secondary">
                                             <?php for ($i=1; $i <= $ImgListSize; $i++) { ?>
                                             <div class="carousel-item <?php if($i==1){echo 'active';}?>">
                                                 <img src="./images/<?php echo $_GET['a']."_".($i-1); ?>.jpg"
                                                 class="d-block w-100" alt="Article Image <?php echo $i; ?>">
+                                                <div class="bg-secondary ms-2 rounded-bottom">
+                                                    <small class="text-light">
+                                                        <?php $varr = 'ImgCap'.$i; echo $$varr; ?>
+                                                    </small>
+                                                  </div>
                                             </div>
                                             <?php } ?>
                                         </div>
@@ -303,7 +297,6 @@
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                             <span class="visually-hidden">Next</span>
                                         </button>
-                                    </div>
                                     <?php } ?>
                                 </div>
                                 <?php } ?>
