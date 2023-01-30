@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="Police Darpan | Log In">
   <meta property="og:description" content="News Management System (Designed with ♥ by Aditya Dubey)"/>
-  <meta property="og:image" content="http://www.policedarpannews.in/Admin/assets/img/logoRound.pn">
+  <meta property="og:image" content="http://www.policedarpannews.in/Admin/assets/img/logoRound.png">
   <meta property="og:image:width" content="600"/>
   <meta property="og:image:height" content="300"/>
   <meta property="og:image:alt" content="Police Darpan"/>
