@@ -27,7 +27,6 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
-  <script src="../assets/js/dashboard.js"></script>
   <title>Police Darpan | Admin</title>
 </head>
 
@@ -392,6 +391,7 @@
     });
     
   </script>
+  <script src="../assets/js/dashboard.js"></script>
 
 </body>
 </html>
