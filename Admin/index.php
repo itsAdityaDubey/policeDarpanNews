@@ -5,14 +5,14 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Aspire | Log In">
-  <meta property="og:description" content="Exam Managment System (Designed with ♥ by Aditya Dubey)"/>
-  <meta property="og:image" content="http://www.aspireedu.co.in/Exam(Pre)/assets/img/metaLogo.png">
+  <meta property="og:title" content="Police Darpan | Log In">
+  <meta property="og:description" content="News Management System (Designed with ♥ by Aditya Dubey)"/>
+  <meta property="og:image" content="http://www.policedarpannews.in/Admin/assets/img/logoRound.pn">
   <meta property="og:image:width" content="600"/>
   <meta property="og:image:height" content="300"/>
-  <meta property="og:image:alt" content="Aspire"/>
+  <meta property="og:image:alt" content="Police Darpan"/>
   <meta property="og:type" content="Website"/>
-  <meta property="og:url" content="http://www.aspireedu.co.in/Exam(Pre)/"/>
+  <meta property="og:url" content="http://www.policedarpannews.in/Admin/"/>
   <link rel="shortcut icon" type="image/jpg" href="./assets/img/favicon.ico">
 
   <!-- Bootstrap CSS -->
