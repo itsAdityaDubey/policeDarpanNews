@@ -143,7 +143,7 @@
                 exit;
             }
             while ($row = mysqli_fetch_assoc($result)) {
-            echo $row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'];
+            echo $row['First_Name'].' '.$row['Last_Name'];
             }
             CloseCon($conn);
          ?>
