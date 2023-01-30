@@ -17,8 +17,8 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
-  <title>Aspire &nbsp; | Log In</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <title>Police Darpan &nbsp; | Log In</title>
 </head>
 
 <body>

@@ -32,13 +32,13 @@
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
   
   
-  <!-- Aspire CSS/Js -->
-  <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+  <!-- Police Darpan CSS/Js -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
   <link rel="stylesheet" href="../assets/css/imgUpload.css">
   <script src="../assets/js/imgUpload.js"></script>
-  <title>Aspire | Admin</title>
+  <title>Police Darpan | Admin</title>
   <style>
     .hytPlayerWrap {
         display: inline-block;

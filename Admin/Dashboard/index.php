@@ -23,12 +23,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Aspire CSS/Js -->
-  <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+  <!-- Police Darpan CSS/Js -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
   <script src="../assets/js/dashboard.js"></script>
-  <title>Aspire | Admin</title>
+  <title>Police Darpan | Admin</title>
 </head>
 
 <body>     
@@ -36,7 +36,7 @@
   <!-- Sidebar-->
   <div class="sidebar inline" id="sidebar-wrapper">
     <div class="sidebar-heading p-1 pr-3 pt-2 text-center">
-      <a href="./"><img src="../assets/img/logoRound.png" height="70px" alt="Aspire"></a>
+      <a href="./"><img src="../assets/img/logoRound.png" height="70px" alt="Police Darpan"></a>
     </div>
     <hr class="mb-0 bg-white" width="90%">
     <div class="sidebar-nav">
