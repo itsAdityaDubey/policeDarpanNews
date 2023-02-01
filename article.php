@@ -314,7 +314,7 @@
                                 <div class="row my-3">
                                     <div class="col-sm-8  d-none d-md-block ">
                                         <div class="row">
-                                            <div class="col-1">
+                                            <div class="col-1" style="width: min(16vw, 52px);">
                                                 <span class="material-icons text-primary"
                                                     style="font-size: min(16vw, 52px);">account_circle</span>
                                             </div>
