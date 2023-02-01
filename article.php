@@ -3,6 +3,8 @@
     
     getTrandingIds(3);
     viewCounter($_GET['a']);
+    articleData($_GET['a']);
+    $currentUrl = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,16 +13,21 @@
     <meta charset="utf-8">
     <title>Police Darpan | Latest News</title>
     <meta name="description" content="Get the latest buzz in the town first.">
-    <meta name="keywords" content="Latest News Punjabi Jalandhar Phagwara">
+    <meta name="keywords" content="Latest News Punjabi Jalandhar Phagwara Punjab News news, Punjab News videos Punjab News photos Punjab News latest updates">
     <meta name="author" content="Police Darpan">
     <meta name="author_email" content="editor@policedarpannews.in">
     <meta property="og:title" content="Police Darpan | Latest News" />
     <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="Police Darpan" />
-    <meta property="og:description" content="Get the latest buzz in the town first." />
-    <meta property="og:url" content="https://policedarpannews.in/" />
-    <meta property="og:image" content="https://policedarpannews.in/assets/images/newbg.png" />
-    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="Police Darpan | News" />
+    <meta property="og:description" content="<?php echo $Title; ?>" />
+    <meta property="og:url" content="<?php echo $currentUrl; ?>" />
+    <meta property="og:image" content="<?php echo $thumbnailUrl; ?>" />
+    <?php
+        if ($YoutubeId!='') {
+            echo '<meta property="og:video" content="https://www.youtube.com/v/<?php echo $YoutubeId; ?>" />';
+        }
+    ?>
+    <meta property="og:locale" content="pa" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
@@ -30,7 +37,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
         integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="canonical" href="https://policedarpannews.in/">
+    <link rel="canonical" href="<?php echo $currentUrl; ?>">
     <style>
         .hytPlayerWrap {
             display: inline-block;
@@ -304,13 +311,13 @@
                                     <?php echo $Title; ?>
                                 </h3>
                                 <div class="row my-3">
-                                    <div class="col-sm-4  d-none d-md-block ">
+                                    <div class="col-sm-8  d-none d-md-block ">
                                         <div class="row">
                                             <div class="col-2">
                                                 <span class="material-icons text-primary"
                                                     style="font-size: min(16vw, 52px);">account_circle</span>
                                             </div>
-                                            <div class="col-10 pt-1 ps-4">
+                                            <div class="col-10 pt-1">
                                                 <h5 class="fw-bold mb-0">Police Darpan<i
                                                         class="material-icons small text-success ms-1">verified</i>
                                                 </h5>
@@ -320,7 +327,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-4">
                                         <span class="fs-13 ms-2 fw-bold float-sm-end">
                                             <?php echo $District; ?>
                                         </span><br>
@@ -328,7 +335,32 @@
                                             <?php echo $Date; ?>
                                         </span>
                                     </div>
+                                <div class="col-8 d-block d-lg-none ">
+                                    <!-- AddToAny BEGIN -->
+                                    <div class="float-end a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo $currentUrl; ?>" data-a2a-title="<?php echo $Title; ?>">
+                                    
+                                    <a class="a2a_button_whatsapp"></a>
+                                    <a class="a2a_button_facebook"></a>
+                                    <a class="a2a_button_twitter"></a>
+                                    <a class="a2a_button_linkedin"></a>
+                                    </div>
+                                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                                    <!-- AddToAny END -->
                                 </div>
+                                </div>
+                                <div class="row ">
+                                <div class="col-12 mb-2 d-none d-lg-block ">
+                                    <!-- AddToAny BEGIN -->
+                                    <div class="float-end a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo $currentUrl; ?>" data-a2a-title="<?php echo $Title; ?>">
+                                    
+                                    <a class="a2a_button_whatsapp"></a>
+                                    <a class="a2a_button_facebook"></a>
+                                    <a class="a2a_button_twitter"></a>
+                                    <a class="a2a_button_linkedin"></a>
+                                    </div>
+                                    <script async src="https://static.addtoany.com/menu/page.js"></script>
+                                    <!-- AddToAny END -->
+                                </div></div>
                                 <p class="mb-4 fs-15">
                                     <?php echo $Article; ?>
                                 </p>
