@@ -22,6 +22,7 @@
     <meta property="og:description" content="<?php echo $Title; ?>" />
     <meta property="og:url" content="<?php echo $currentUrl; ?>" />
     <meta property="og:image" content="<?php echo $thumbnailUrl; ?>" />
+    <meta property="twitter:image" content="<?php echo $thumbnailUrl; ?>">
     <?php
         if ($YoutubeId!='') {
             echo '<meta property="og:video" content="https://www.youtube.com/v/<?php echo $YoutubeId; ?>" />';
