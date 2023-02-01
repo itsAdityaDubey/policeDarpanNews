@@ -84,12 +84,13 @@
         if ($YoutubeId!='') {
             $thumbnailUrl = 'https://img.youtube.com/vi/'.$row['YoutubeId'].'/0.jpg';
         }else if ($ImgListSize>0) {
-            $thumbnailUrl = './images/thumbnail/'.$id.'_0.jpg';
+            $thumbnailUrl = 'https://policedarpannews.in/images/thumbnail/'.$id.'_0.jpg';
         }else {
             $thumbnailUrl='';
         }
         CloseCon($conn);
     }
+    
 
     function getBreaking($category)
     {
