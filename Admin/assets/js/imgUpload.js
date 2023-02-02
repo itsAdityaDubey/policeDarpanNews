@@ -25,7 +25,7 @@ function setImagesVal() {
     let sortListVal='';
     for (let index = 0; index < sortList.length; index++) {
         const element = sortList[index];
-        sortListVal+=element;
+        sortListVal+=' '+element;
     }
     $('#sortList').val(sortListVal);
 }

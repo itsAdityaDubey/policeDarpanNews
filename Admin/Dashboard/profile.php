@@ -25,11 +25,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Police Darpan CSS/Js -->
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <!-- Aspire CSS/Js -->
+  <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
-  <title>Police Darpan | Admin</title>
+  <title>Aspire | Admin</title>
 </head>
 
 <body>     
@@ -98,7 +98,7 @@
                 exit;
             }
             while ($row = mysqli_fetch_assoc($result)) {
-            echo $row['First_Name'].' '.$row['Last_Name'];
+            echo $row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'];
             
          ?>
         </a>

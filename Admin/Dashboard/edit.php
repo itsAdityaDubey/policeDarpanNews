@@ -9,7 +9,7 @@
  }
 
  include '../modules/conn.php';
- include '../modules/youtube.php';
+ include '../modules/algos.php';
 ?>
 
 <!doctype html>
@@ -143,16 +143,26 @@
                 exit;
             }
             while ($row = mysqli_fetch_assoc($result)) {
-            echo $row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'];
+            $First_Name=$row['First_Name'];
+            $Last_Name=$row['Last_Name'];
+            echo $First_Name.' '.$Last_Name;
             }
             CloseCon($conn);
          ?>
         </a>
       </div>
     </nav>
+    <?php
+      if ($_GET['a']!='') {
+        $Id = $_GET['a'];
+        getFullArticle($Id);
+      }else {
+        header("Location: ../index.php");
+      }
+    ?>
     <div class="container px-4 pb-2">
-      <span class="text-light">ID: <?php $articleId = uniqid(); echo $articleId; ?> &nbsp;
-        <a href="#" onclick="navigator.clipboard.writeText('<?php echo $articleId; ?>');"> <i class="material-icons">content_copy</i></a>
+      <span class="text-light">ID: <?php echo $Id; ?> &nbsp;
+        <a href="#" onclick="navigator.clipboard.writeText('<?php echo $Id; ?>');"> <i class="material-icons">content_copy</i></a>
       </span>
       <span class="float-right">
         <button class="btn btn-sm btn-secondary rounded-pill ml-2 font-weight-bold" id="draftArticle">
@@ -239,16 +249,6 @@
   </div>
 
  <!-- Page content-->
- <?php
-    if ($_POST) {
-      if ($_POST['id']!='') {
-        $videoId = $_POST['id'];
-        $data = youtubeData($videoId);
-      }else {
-        $videoTitle = $_POST['title'];
-      }
-    }
- ?>
  <div class="container content">
       <div class="row">
         <div class="col-md-12">
@@ -256,11 +256,11 @@
             <div class="card-body ">
               <div class="row">
                 <div class="col-sm-8 ">
-                  <?php if (isset($videoId)) { ?>
+                  <?php if ($YoutubeId!='') { ?>
                     <div class="hytPlayerWrapOuter">
                       <div class="hytPlayerWrap embed-responsive embed-responsive-16by9 mb-2">
                           <iframe loading="lazy" width="100%" height="100%" allow="fullscreen"
-                              src="https://www.youtube.com/embed/<?php if (isset($_POST['id'])) {echo $data[0];}?>?rel=0&enablejsapi=1"
+                              src="https://www.youtube.com/embed/<?php echo $YoutubeId;?>?rel=0&enablejsapi=1"
                               frameborder="0"
                           ></iframe>
                       </div>
@@ -273,11 +273,21 @@
                 </div>
                       
                 <div class="col-sm-4 pb-3">
-                    <input type="hidden" id="sortList" name="sortList" value="">
+                    <input type="hidden" id="sortList" name="sortList" value="<?php for ($i=1; $i <= $ImgListSize; $i++) {
+                        echo ' '.$i;
+                     }?>">
                     <input type="file" id="pro-image"  accept="image/*" name="imagefiles[]" style="display: none;" multiple>                
                   <div class="border rounded h-100 pt-2 pl-2 mb-2">
-                      <a href="javascript:void(0)" onclick="$('#pro-image').click()">Choose Image</a> <a href="#" class="float-right mr-2" onclick="clearImages()"> <i class="material-icons">delete</i> </a>
+                      <a href="javascript:void(0)" onclick="$('#pro-image').click();" onchange="enbImgSort()" >Choose Image</a> <a href="#" class="float-right mr-2" onclick="clearImages()"> <i class="material-icons">delete</i> </a>
                       <div class="preview-images-zone h-100 p-2">
+                        <?php for ($i=1; $i <= $ImgListSize; $i++) { ?>
+                            <div class="preview-image preview-show-<?php echo $i; ?>">
+                            <div class="number"><?php echo $i; ?></div>
+                            <input type="hidden" id="img-cap-<?php echo $i; ?>" value="<?php $var = 'ImgCap'.$i; echo $$var; ?>">
+                            <div class="image-zone"><img id="<?php echo $i; ?>" imgId="<?php echo $i; ?>" src="/images/<?php echo $_GET['a']."_".($i-1); ?>.jpg"></div>
+                            <div class="tools-edit-image"><a href="javascript:void(0)" data-no="<?php echo $i; ?>" class="btn btn-light btn-sm btn-edit-image">edit</a></div>
+                            </div>
+                        <?php }  ?>
                       </div>
                   </div>
                 </div>
@@ -291,7 +301,7 @@
                           <span class="material-icons text-primary" style="font-size: min(16vw, 52px);">account_circle</span>
                         </div>
                         <div class="col-10 pl-4 pt-1">
-                          <span class="font-weight-bold">Aditya Dubey</span><i class="material-icons text-success ml-2">verified</i> <br>
+                          <span class="font-weight-bold"><?php echo $First_Name.' '.$Last_Name; ?></span><i class="material-icons text-success ml-2">verified</i> <br>
                           <span class="small pt-0"><?php echo date("Y-m-d") ?></span>
                         </div>
                       </div>
@@ -303,7 +313,7 @@
                         <option value="Amritsar">	Amritsar</option>
                         <option value="Bathinda">	Bathinda</option>
                         <option value="Faridkot">	Faridkot</option>
-                        <option value="Fatehgarh Sahib">	Fatehgarh Sahib</option>
+                        <option value="Fatehgarh Sahib">    Fatehgarh Sahib</option>
                         <option value="Firozpur">	Firozpur</option>
                         <option value="Fazilka">	Fazilka</option>
                         <option value="Gurdaspur">	Gurdaspur</option>
@@ -325,7 +335,7 @@
                       </select>
                     </div>
                     <div class="col-sm-4 pt-2">
-                      <select id="articleCategory" class="custom-select mb-2" required>
+                      <select value="<?php echo $Category; ?>" id="articleCategory" class="custom-select mb-2" required>
                         <option value="" selected>Select Category</option>
                         <option value="Politics">	Politics</option>
                         <option value="Business">	Business</option>
@@ -337,9 +347,13 @@
                       </select>
                     </div>
                   </div>
-                  <textarea class="form-control mb-2" id="articleTitle" placeholder="Please enter title" required><?php if (isset($videoId)) {echo $data[1];}else if ($_POST) {echo $videoTitle;} ?></textarea>
+                  <script>
+                    $('#articleDistrict').val('<?php echo $District; ?>');
+                    $('#articleCategory').val('<?php echo $Category; ?>');
+                  </script>
+                  <textarea class="form-control mb-2" id="articleTitle" placeholder="Please enter title" required><?php echo $Title;?></textarea>
                       
-                  <textarea id="summernote" required><?php if (isset($videoId)) {echo nl2br($data[2]);}; ?></textarea>
+                  <textarea id="summernote" required><?php echo $Article; ?></textarea>
                 </div>
               </div>
               
@@ -375,6 +389,17 @@
 	        ],
           height: 570
   });
+  
+  $( document ).ready(function() {
+    $( ".preview-images-zone" ).sortable({
+        disabled: true
+      });
+    $('.btn-edit-image').prop( 'disabled', true );
+  });
+  $(document).on('click', '.preview-images-zone', function(){
+      $(this).sortable( "enable" );
+      $('.btn-edit-image').prop( 'disabled', false );
+    });
 </script>
 <script src="../assets/js/dashboard.js"></script>
 <script>
@@ -474,12 +499,12 @@
 
       form.append("articleStatus", status);
 
-      form.append("youtubeId", '<?php if(isset($videoId)){echo $videoId;}; ?>');
+      form.append("youtubeId", '<?php if($YoutubeId!=''){echo $YoutubeId;}; ?>');
       
-      form.append("articleId", '<?php echo $articleId; ?>');
+      form.append("articleId", '<?php echo $Id; ?>');
       
       $.ajax({
-          url: "uploadArticle.php",
+          url: "editArticle.php",
           type: "POST",
           data:  form,
           contentType: false,

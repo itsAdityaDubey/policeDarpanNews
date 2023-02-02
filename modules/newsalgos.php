@@ -154,7 +154,6 @@
         global $Date;
         global $District;
         global $Category;
-        global $id;
         global $ImgCap1;
         global $ImgCap2;
         global $ImgCap3;

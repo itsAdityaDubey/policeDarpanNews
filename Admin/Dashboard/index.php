@@ -308,6 +308,7 @@
               <div class="card-body">
                 <p class="card-text ">'.$row['Title'].' </br>
                 <div class="d-flex justify-content-between align-items-center mb-2">
+                
                 <span class="badge badge-';
                 if ($row['Status'] == "Working") {
                     echo 'danger';
@@ -323,9 +324,9 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a href="../../article.php?a='.$row['Id'].'" target="_blank" type="button" class="btn btn-sm btn-outline-primary viewTest">View</a>
-                    <a type="button" class="btn btn-sm btn-outline-primary editTest">Edit</a>
+                    <a href="./edit.php?a='.$row['Id'].'" type="button" class="btn btn-sm btn-outline-primary editTest">Edit</a>
                   </div>
-                  <small class="text-muted">'.$row['Date'].'</small>
+                  <small class="text-muted">'.$row['Id'].'</small>
                 </div>
               </div>
             </div>
@@ -371,25 +372,27 @@
 
     $( ".deleteArticle" ).click(function() {
       let Id = $(this).attr("articleId");
-      var form = new FormData();
-      form.append("Id", Id);
-      $.ajax({
-          url: "deleteArticle.php",
-          type: "POST",
-          data:  form,
-          contentType: false,
-          processData:false,
-          success: function(result){
-            console.log(result);
-              if (result == '200 Ok') {
-                alert('Deleted Successfully');
-                window.location.href = "./";
-              }else {
-                alert('Could Not Delete Article.');
-              }
-          }
-      });
-    });
+      let promt = "You want to delete article Id:"+Id
+      if (confirm(promt) == true) {
+        var form = new FormData();
+        form.append("Id", Id);
+        $.ajax({
+            url: "deleteArticle.php",
+            type: "POST",
+            data:  form,
+            contentType: false,
+            processData:false,
+            success: function(result){
+              console.log(result);
+                if (result == '200 Ok') {
+                  window.location.href = "./";
+                }else {
+                  alert('Could Not Delete Article.');
+                }
+            }
+        });
+      }
+    }); 
     
   </script>
 

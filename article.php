@@ -314,11 +314,11 @@
                                 <div class="row my-3">
                                     <div class="col-sm-8  d-none d-md-block ">
                                         <div class="row">
-                                            <div class="col-1" style="width: 38px;">
+                                            <div class="col-2">
                                                 <span class="material-icons text-primary"
                                                     style="font-size: min(16vw, 52px);">account_circle</span>
                                             </div>
-                                            <div class="col-10 pt-1 ps-4">
+                                            <div class="col-10 pt-1">
                                                 <h5 class="fw-bold mb-0">Police Darpan<i
                                                         class="material-icons small text-success ms-1">verified</i>
                                                 </h5>
