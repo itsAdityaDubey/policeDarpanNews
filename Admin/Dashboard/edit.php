@@ -165,7 +165,7 @@
       }
     ?>
     <div class="container px-4 pb-2">
-      <span class="text-light">ID: <?php echo $Id; ?> &nbsp;
+      <span class="text-light  d-none d-md-inline">ID: <?php echo $Id; ?> &nbsp;
         <a href="#" onclick="navigator.clipboard.writeText('<?php echo $Id; ?>');"> <i class="material-icons">content_copy</i></a>
       </span>
       <span class="float-right">

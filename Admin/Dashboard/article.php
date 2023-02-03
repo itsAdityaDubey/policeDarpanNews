@@ -154,7 +154,7 @@
       </div>
     </nav>
     <div class="container px-4 pb-2">
-      <span class="text-light">ID: <?php $articleId = uniqid(); echo $articleId; ?> &nbsp;
+      <span class="text-light  d-none d-md-inline">ID: <?php $articleId = uniqid(); echo $articleId; ?> &nbsp;
         <a href="#" onclick="navigator.clipboard.writeText('<?php echo $articleId; ?>');"> <i class="material-icons">content_copy</i></a>
       </span>
       <span class="float-right">
