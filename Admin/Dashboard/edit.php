@@ -2,9 +2,11 @@
  session_start();
  if(isset($_SESSION['Edit_Access'])){
    if($_SESSION['Edit_Access'] != "Allow"){
+    $_SESSION['Login_code'] = 2;
      header("Location: ../index.php");
      }
  }else {
+  $_SESSION['Login_code'] = 2;
    header("Location: ../index.php");
  }
 
@@ -33,7 +35,7 @@
   
   
   <!-- Police Darpan CSS/Js -->
-  <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
   <link rel="stylesheet" href="../assets/css/imgUpload.css">
@@ -103,6 +105,7 @@
             </ul>
         </li>
         <li>
+        <?php if($_SESSION["Edit_Admin"]=='Allow'){ ?>
             <a href="#blogSubmenu" data-toggle="collapse" aria-expanded="false" class="navitem-shadow text-light"><i class="material-icons">admin_panel_settings</i><span class="ml-5"> Admin</span></a>
             <ul class="collapse list-unstyled" id="blogSubmenu">
                 <li>
@@ -113,6 +116,7 @@
                 </li>
             </ul>
         </li>
+        <?php } ?>
         <li>
             <a href="#" class="navitem-shadow text-light"><span class="material-icons">question_answer</span><span class="ml-5"> Feedback</span></a>
         </li>
@@ -169,13 +173,13 @@
           <div class="spinner-border spinner-border-sm text-light" id="draftArticleLoader" style="display: none;" role="status">
             <span class="sr-only">Loading...</span>
           </div>
-           <i class="material-icons" id="draftArticleDefault">create_new_folder</i> &nbsp;Draft
+           <i class="material-icons" id="draftArticleDefault">movie_edit</i> &nbsp;Inactive (Draft) 
           </button>
         <button class="btn btn-sm btn-primary rounded-pill ml-2 font-weight-bold" id="saveArticle">
           <div class="spinner-border spinner-border-sm text-light" id="saveArticleLoader" style="display: none;" role="status">
             <span class="sr-only">Loading...</span>
           </div>
-          <i class="material-icons" id="saveArticleDefault">cloud_upload</i> &nbsp;Save
+          <i class="material-icons" id="saveArticleDefault">live_tv</i> &nbsp;Active (Save) 
         </button>
       </span>
     </div>
@@ -338,6 +342,7 @@
                       <select value="<?php echo $Category; ?>" id="articleCategory" class="custom-select mb-2" required>
                         <option value="" selected>Select Category</option>
                         <option value="Politics">	Politics</option>
+                        <option value="Religion">	Religion</option>
                         <option value="Business">	Business</option>
                         <option value="Sports">	Sports</option>
                         <option value="Travel">	Travel</option>

@@ -5,6 +5,7 @@
      header("Location: ../index.php");
      }
  }else {
+  $_SESSION['Login_code'] = 2;
    header("Location: ../index.php");
  }
 
@@ -25,11 +26,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Aspire CSS/Js -->
-  <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+  <!-- Police Darpan CSS/Js -->
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
-  <title>Aspire | Admin</title>
+  <title>Police Darpan | Admin</title>
 </head>
 
 <body>     
@@ -57,6 +58,7 @@
                 </li>
             </ul>
         </li>
+        <?php if($_SESSION["Edit_Admin"]=='Allow'){ ?>
         <li>
             <a href="#blogSubmenu" class="navitem-shadow text-light"  data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="material-icons">admin_panel_settings</i><span class="ml-5"> Admin</span></a>
             <ul class="collapse list-unstyled" id="blogSubmenu">
@@ -64,10 +66,11 @@
                     <a class="text-light" href="#"><span class="material-icons">manage_accounts</span><span class="ml-5"> Manage Accounts</span></a>
                 </li>
                 <li>
-                    <a class="text-light" href="#"><span class="material-icons">how_to_reg</span><span class="ml-5"> Regester User</span></a>
+                    <a class="text-light" href="./regester.php"><span class="material-icons">how_to_reg</span><span class="ml-5"> Regester User</span></a>
                 </li>
             </ul>
         </li>
+        <?php } ?>
         <li>
             <a href="#" class="navitem-shadow text-light"><span class="material-icons">question_answer</span><span class="ml-5"> Feedback</span></a>
         </li>

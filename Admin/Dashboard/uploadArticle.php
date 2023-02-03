@@ -1,6 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['Edit_Access'])){
+  $_SESSION['Login_code'] = 2;
   header("Location: ../index.php");
 }
 

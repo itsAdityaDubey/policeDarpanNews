@@ -50,7 +50,7 @@ function readImage() {
             for (let i = 0; i < files.length; i++) {
                 var file = files[i];
                 if (!file.type.match('image')) continue;
-                if (file.size>2097152){ alert(" Size of image no "+(i+1)+" is more than 2 MB"); continue;}
+                if (file.size>4097152){ alert(" Size of image no "+(i+1)+" is more than 2 MB"); continue;}
 
                 var picReader = new FileReader();
 

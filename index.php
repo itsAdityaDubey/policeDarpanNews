@@ -81,12 +81,12 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold" style="font-size: 15px;">
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="#">
-                    <span class="text-light border-end border-secondary pe-3">Login</span>
+                    <span class="text-light border-end border-secondary pe-3">Punjabi</span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">
-                    <span class="text-light">Sign up</span>
+                    <span class="text-light">English</span>
                   </a>
                 </li>
               </ul>
@@ -203,7 +203,7 @@
         <div role="button" title="Click to Read More"
           onclick="window.location.href ='./article.php?a=<?php echo $newsIds[$idCounter]; ?>'" class="card">
           <div class="ratio ratio-16x9">
-            <img src="<?php echo $thumbnailUrl; ?>" alt="banner" style="object-fit: cover;" class="rounded img-fluid">
+            <img src="<?php echo $thumbnailUrl; if($thumbnailUrl==''){echo './assets/img/logoRound.png';} ?>" alt="banner" style="object-fit: cover;" class="rounded img-fluid">
           </div>
           <div class="banner-content w-100">
             <span class="badge bg-danger mb-3">
@@ -240,7 +240,7 @@
               </div>
               <div class="col-3 p-0">
                 <div class="ratio ratio-16x9">
-                  <img src="<?php echo $thumbnailUrl; ?>" alt="banner" style="object-fit: cover;"
+                  <img src="<?php echo $thumbnailUrl; if($thumbnailUrl==''){echo './assets/img/logoRound.png';} ?>" alt="banner" style="object-fit: cover;"
                     class="img-fluid img-lg">
                 </div>
               </div>
@@ -295,7 +295,7 @@
                 <div class="position-relative">
                   <div class="news-img">
                     <div class="ratio ratio-16x9">
-                      <img src="<?php echo $thumbnailUrl; ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
+                      <img src="<?php echo $thumbnailUrl; if($thumbnailUrl==''){echo './assets/img/logoRound.png';} ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
                     </div>
                   </div>
                   <div class="badge-positioned">
@@ -340,7 +340,7 @@
                       class="border-bottom pb-3 mb-3">
                       <div class="news-img">
                         <div class="ratio ratio-16x9">
-                          <img src="<?php echo $thumbnailUrl; ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
+                          <img src="<?php echo $thumbnailUrl; if($thumbnailUrl==''){echo './assets/img/logoRound.png';} ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
                         </div>
                       </div>
                       <p class="h6 fw-bolder mb-0 mt-3">
@@ -402,7 +402,7 @@
                       class="border-bottom pb-3 mb-3">
                       <div class="news-img">
                         <div class="ratio ratio-16x9">
-                          <img src="<?php echo $thumbnailUrl; ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
+                          <img src="<?php echo $thumbnailUrl; if($thumbnailUrl==''){echo './assets/img/logoRound.png';} ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
                         </div>
                       </div>
                       <p class="h6 fw-bolder mb-0 mt-3">
@@ -447,7 +447,7 @@
                       class="border-bottom pb-3 mb-3">
                       <div class="news-img">
                         <div class="ratio ratio-16x9">
-                          <img src="<?php echo $thumbnailUrl; ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
+                          <img src="<?php echo $thumbnailUrl; if($thumbnailUrl==''){echo './assets/img/logoRound.png';} ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
                         </div>
                       </div>
                       <p class="h6 fw-bolder mb-0 mt-3">
@@ -509,7 +509,7 @@
                       onclick="window.location.href ='./article.php?a=<?php echo $newsIds[$idCounter]; ?>'" class="">
                       <div class="news-img">
                         <div class="ratio ratio-16x9">
-                          <img src="<?php echo $thumbnailUrl; ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
+                          <img src="<?php echo $thumbnailUrl; if($thumbnailUrl==''){echo './assets/img/logoRound.png';} ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
                         </div>
                       </div>
                       <p class="h6 fw-bolder mb-0 mt-3">
@@ -568,7 +568,7 @@
         </div>
         <div class="col-sm-6">
           <div class="float-end mb-4">
-            <a class="me-2" href="#">
+            <a class="me-2" href="./Admin">
               <span class="text-light border-end border-secondary pe-3">Admin Login</span>
             </a>
             <a href="#">

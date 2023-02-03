@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -5,20 +8,20 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Aspire | Log In">
-  <meta property="og:description" content="Exam Managment System (Designed with ♥ by Aditya Dubey)"/>
-  <meta property="og:image" content="http://www.aspireedu.co.in/Exam(Pre)/assets/img/metaLogo.png">
+  <meta property="og:title" content="Police Darpan | Log In">
+  <meta property="og:description" content="News Managment System (Designed with ♥ by Aditya Dubey)"/>
+  <meta property="og:image" content="https://www.policedarpannews.in/Admin/assets/img/testImage.jpg">
   <meta property="og:image:width" content="600"/>
   <meta property="og:image:height" content="300"/>
-  <meta property="og:image:alt" content="Aspire"/>
+  <meta property="og:image:alt" content="Police Darpan"/>
   <meta property="og:type" content="Website"/>
-  <meta property="og:url" content="http://www.aspireedu.co.in/Exam(Pre)/"/>
-  <link rel="shortcut icon" type="image/jpg" href="./assets/img/favicon.ico">
+  <meta property="og:url" content="https://www.policedarpannews.in/Admin/"/>
+  <link rel="shortcut icon" type="image/jpg" href="./assets/img/logoRounded.ico">
 
   <!-- Bootstrap CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
-  <title>Aspire &nbsp; | Log In</title>
+  <link rel="shortcut icon" href="https://www.policedarpannews.in/favicon.ico" type="image/x-icon">
+  <title>Police Darpan &nbsp; | Log In</title>
 </head>
 
 <body>
@@ -67,6 +70,18 @@
         <div class="modal-dialog" role="document">
          <div class="modal-content">
            <div class="modal-header">
+           <strong>Email Not Found!!</strong>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+        </div>';
+        session_unset();
+      }elseif($_SESSION['Login_code'] == 1){
+       echo '<div class="modal fade" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
            <strong>Details Incorrect!!</strong>
              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
@@ -74,7 +89,8 @@
            </div>
         </div>';
         session_unset();
-      }elseif($_SESSION['Login_code'] == 2){
+        session_destroy();
+    }elseif($_SESSION['Login_code'] == 2){
        echo '<div class="modal fade" id="centralModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
        <div class="modal-dialog" role="document">
          <div class="modal-content">

@@ -5,59 +5,11 @@
      header("Location: ../index.php");
      }
  }else {
+  $_SESSION['Login_code'] = 2;
    header("Location: ../index.php");
  }
 
  include '../modules/conn.php';
-
- function uniqidReal($lenght) {
-     // uniqid gives 13 chars, but you could adjust it to your needs.
-     if (function_exists("random_bytes")) {
-         $bytes = random_bytes(ceil($lenght / 2));
-     } elseif (function_exists("openssl_random_pseudo_bytes")) {
-         $bytes = openssl_random_pseudo_bytes(ceil($lenght / 2));
-     } else {
-         throw new Exception("no cryptographically secure random function available");
-     }
-     return substr(bin2hex($bytes), 0, $lenght);
- }
- 
- $Random_ID = uniqidReal(4);
- $Final_ID = '0000';
- $Check = 0;
- 
- while($Final_ID == '0000') {
- $conn = OpenCon();
- 
- // Query
- $sql = "SELECT ID
-    FROM   users";
- 
- $result = mysqli_query($conn,$sql);
- 
- if (!$result) {
-   echo "Could not successfully run query ($sql) from DB: " . mysqli_error();
-   exit;
- }
- 
- if (mysqli_num_rows($result) == 0) {
-   echo "<br> No rows found, nothing to print so am exiting";
- }
- 
- while ($row = mysqli_fetch_assoc($result)) {
-     if($Random_ID == $row['ID']){
-         $Random_ID = uniqidReal(4);
-         $Check = 1;
-     }
- }
- if($Check ==0 ){
-     $Final_ID =$Random_ID;
- }
- 
- mysqli_free_result($result);
- CloseCon($conn);
- }
- 
 ?>
 
 <!doctype html>
@@ -75,7 +27,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <!-- Police Darpan CSS/Js -->
-  <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
   <title>Police Darpan | Admin</title>
@@ -106,6 +58,7 @@
                 </li>
             </ul>
         </li>
+        <?php if($_SESSION["Edit_Admin"]=='Allow'){ ?>
         <li class="active">
             <a href="#blogSubmenu" class=""  data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="material-icons">admin_panel_settings</i><span class="ml-5"> Admin</span></a>
             <ul class="collapse show list-unstyled" id="blogSubmenu">
@@ -113,10 +66,11 @@
                     <a class="text-light" href="#"><span class="material-icons">manage_accounts</span><span class="ml-5"> Manage Accounts</span></a>
                 </li>
                 <li>
-                    <a class="text-light" href="#"><span class="material-icons">how_to_reg</span><span class="ml-5"> Regester User</span></a>
+                    <a class="text-light" href="./regester.php"><span class="material-icons">how_to_reg</span><span class="ml-5"> Regester User</span></a>
                 </li>
             </ul>
         </li>
+        <?php } ?>
         <li>
             <a href="#" class="navitem-shadow text-light"><span class="material-icons">question_answer</span><span class="ml-5"> Feedback</span></a>
         </li>
@@ -135,13 +89,30 @@
         <span class="navbar-brand text-light">Regester</span></div>
       <div>
         <a herf="#" role="button" class="navbar-brand text-light">
-          <span class="material-icons">account_circle</span> User's Name
+          <span class="material-icons">account_circle</span>
+          <?php
+            $conn = OpenCon();
+            $sql = "SELECT Role,Email,Phone,First_Name,Middle_Name,Last_Name,Access,Address,City,State,PinCode
+                FROM   users
+                WHERE ID = '".$_SESSION['Login_ID']."'";
+                $result = mysqli_query($conn,$sql);
+            if (!$result) {
+                echo "Could not successfully run query ($sql) from DB: " . mysqli_error();
+                exit;
+            }
+            while ($row = mysqli_fetch_assoc($result)) {
+            $First_Name=$row['First_Name'];
+            $Last_Name=$row['Last_Name'];
+            echo $First_Name.' '.$Last_Name;
+            }
+            CloseCon($conn);
+         ?>
         </a>
       </div>
     </nav>
   </div>
 
- <!-- Create Test content-->
+ <!-- Create Articel content-->
  <div class="modal fade" id="createTestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -158,16 +129,13 @@
                   <input type="hidden" name="id" id="articleId" value="">
                   <div class="btn-group btn-group-toggle mb-3 w-100" data-toggle="buttons">
                     <label class="btn btn-warning active">
-                      <input type="radio" name="type" id="articleType1" value="video" onclick="document.getElementById('formUrl').placeholder = 'Video Url';" autocomplete="off" checked> Video
+                      <input type="radio" name="type" value="text"" onclick="document.getElementById('articleUrl').placeholder = 'Article Name';" autocomplete="off" checked> Text
                     </label>
                     <label class="btn btn-warning">
-                      <input type="radio" name="type" value="text" onclick="document.getElementById('formUrl').placeholder = 'Article Name';" autocomplete="off"> Text
-                    </label>
-                    <label class="btn btn-warning">
-                      <input type="radio" name="type" id="articleType3" value="both" onclick="document.getElementById('formUrl').placeholder = 'Video Url';" autocomplete="off"> Both
+                      <input type="radio" name="type" value="url" onclick="document.getElementById('articleUrl').placeholder = 'Video Url';" autocomplete="off"> Video
                     </label>
                   </div>
-                  <textarea name="url" class="form-control mb-2" id="articleUrl" placeholder="Video Url" autocomplete="off" required></textarea>
+                  <textarea name="title" class="form-control mb-2" id="articleUrl" placeholder="Article Name" autocomplete="off" required></textarea>
                   
                   <button type="submit"  class="btn btn-info btn-block"> Creat </button>
                 </form>
@@ -182,6 +150,7 @@
       </div>
     </div>
   </div>
+
 
  <!-- Page content-->
  <div class="container content">
@@ -229,7 +198,7 @@
                     </div>
                     <div class="form-group">
                       <label for="inputAddress">Address</label>
-                      <input type="text" name="Address" class="form-control" id="inputAddress" placeholder="Enter Address" required>
+                      <input type="text" name="Address" class="form-control" id="inputAddress" placeholder="Enter Address">
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
@@ -280,7 +249,7 @@
                       </div>
                       <div class="form-group col-md-2">
                         <label for="inputPinCode">Pin Code</label>
-                        <input type="text" name="PinCode" class="form-control" id="inputPinCode" required>
+                        <input type="text" name="PinCode" class="form-control" id="inputPinCode">
                       </div>
                     </div>
                     
@@ -310,18 +279,26 @@
     
     $("#createArticle").submit(function(e){
       // e.preventDefault();
-      if ($("#articleType1").val()) {
+      if ($("#createArticle").find('input[name="type"]:checked').val()=='url') {
         let url = $("#articleUrl").val();
         let id = YouTubeGetID(url);
-        $("#articleId").val(id);
+        if (id!='Error: Cannot Find Id') {
+          $("#articleId").val(id);
+        }else{
+          alert('URL Incorrect, Could not find Youtube video Id.');
+          return false;
+        }
+      }else{
+        $("#articleId").val('');
       }
+      return true;
     });
   </script>
 
   <?php 
      if(!empty($_POST)){
        
-        $ID = $Final_ID;
+        $ID = uniqid();
         $First_Name = ucfirst(strtolower($_POST['First_Name']));
         $Middle_Name = ucfirst(strtolower($_POST['Middle_Name']));
         $Last_Name = ucfirst(strtolower($_POST['Last_Name']));
@@ -333,15 +310,17 @@
         $City = $_POST['City'];
         $State = $_POST['State'];
         $PinCode = $_POST['PinCode'];
-        $Password = uniqidReal(8);
+        if($_POST['PinCode']!=''){$Pindata = ',`PinCode`';$PinVal = ', "'.$PinCode.'"';}
+        else{$Pindata = '';$PinVal = '';}
+        $Password = uniqid();
          
         
         $conn = OpenCon();
 
         $sql = 'INSERT INTO users'. 
-           '(`ID`, `First_Name`, `Middle_Name`, `Last_Name`, `Access`, `Role`, `Email`, `Phone`,`Password`,`Address`,`City`,`State`,`PinCode`) '.
-           'VALUES ("'.$ID.'", "'.$First_Name.'", "'.$Middle_Name.'", "'.$Last_Name.'", "'.$Access.'", "'.$Role.'", "'.$Email.'", "'.$Phone.'", "'.$Password.'", "'.$Address.'", "'.$City.'", "'.$State.'", "'.$PinCode.'")';
-           
+           '(`ID`, `First_Name`, `Middle_Name`, `Last_Name`, `Access`, `Role`, `Email`, `Phone`,`Password`,`Address`,`City`,`State`'.$Pindata.') '.
+           'VALUES ("'.$ID.'", "'.$First_Name.'", "'.$Middle_Name.'", "'.$Last_Name.'", "'.$Access.'", "'.$Role.'", "'.$Email.'", "'.$Phone.'", "'.$Password.'", "'.$Address.'", "'.$City.'", "'.$State.'"'.$PinVal.')';
+        echo $sql;
         $retval = mysqli_query( $conn, $sql);
         
         if(! $retval ) {
@@ -361,6 +340,11 @@
                Email: <strong>'.$Email.'</strong> Password: <strong>'.$Password.'</strong>
             </div>
             <div class="modal-footer">
+            <small>Share on: </small>
+              <div class="float-end a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://policedarpannews.in/Admin/" data-a2a-title="Email: *'.$Email.'* Password: *'.$Password.'*">
+              <a class="a2a_button_whatsapp"></a>
+              </div>
+              <script async src="https://static.addtoany.com/menu/page.js"></script>
               <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
           </div>

@@ -21,6 +21,8 @@ if(!empty($_POST)){
 
     if (mysqli_num_rows($result) == 0) {
        echo "Could Not find User";
+       header("Location: index.php");
+       $_SESSION['Login_code'] = 0;
        exit;
     }
 
@@ -44,7 +46,7 @@ if(!empty($_POST)){
 
        }else{
         header("Location: index.php");
-        $_SESSION['Login_code'] = 0;
+        $_SESSION['Login_code'] = 1;
        }
 
       
@@ -55,5 +57,7 @@ if(!empty($_POST)){
 
 }else {
 	echo'Access Forbidden';
+    header("Location: index.php");
+    $_SESSION['Login_code'] = 2;
 }
 ?>

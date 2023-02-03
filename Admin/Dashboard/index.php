@@ -5,6 +5,7 @@
      header("Location: ../index.php");
      }
  }else {
+  $_SESSION['Login_code'] = 2;
    header("Location: ../index.php");
  }
 ?>
@@ -56,6 +57,7 @@
                 </li>
             </ul>
         </li>
+        <?php if($_SESSION["Edit_Admin"]=='Allow'){ ?>
         <li>
             <a href="#blogSubmenu" class="navitem-shadow text-light"  data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="material-icons">admin_panel_settings</i><span class="ml-5"> Admin</span></a>
             <ul class="collapse list-unstyled" id="blogSubmenu">
@@ -63,10 +65,11 @@
                     <a class="text-light" href="#"><span class="material-icons">manage_accounts</span><span class="ml-5"> Manage Accounts</span></a>
                 </li>
                 <li>
-                    <a class="text-light" href="#"><span class="material-icons">how_to_reg</span><span class="ml-5"> Regester User</span></a>
+                    <a class="text-light" href="./regester.php"><span class="material-icons">how_to_reg</span><span class="ml-5"> Regester User</span></a>
                 </li>
             </ul>
         </li>
+        <?php } ?>
         <li>
             <a href="#" class="navitem-shadow text-light"><span class="material-icons">question_answer</span><span class="ml-5"> Feedback</span></a>
         </li>
@@ -153,16 +156,21 @@
             <div class="card-body ">
                       
         <?php
-        
+        if($_SESSION["Edit_Admin"]=='Deny'){
+          $checkAdminSQL=" WHERE `WriterId`='".$_SESSION["memberId"]."' ";
+          $nonAdminSql =" AND `WriterId`='".$_SESSION["memberId"]."' ";}else {
+          $checkAdminSQL ="";
+          $nonAdminSql ="";
+        };
         // Query
-        $sql = "SELECT `Id` FROM `Articles`";
+        $sql = "SELECT `Id` FROM `Articles` ".$checkAdminSQL;
         $result = mysqli_query($conn,$sql);
         if (mysqli_num_rows($result) == 0) {
           echo '<h6 class="head-sl text-muted blockquote-footer"><i>&nbsp; No Test(s) / Assignment(s) Created   &nbsp;</i></h6><br><br><br><br><br><br>';
         }
 
         // Query Working
-        $sql = "SELECT `Id`, `Title`, `Date`, `Status`,  `YoutubeId`, `ImgListSize` FROM `Articles` WHERE `Status` = 'Working' ORDER BY DateTime DESC;";
+        $sql = "SELECT `Id`, `Title`, `Date`, `Status`,  `YoutubeId`, `ImgListSize` FROM `Articles` WHERE `Status` = 'Working' ".$nonAdminSql." ORDER BY DateTime DESC;";
         
         $result = mysqli_query($conn,$sql);
         
@@ -193,24 +201,18 @@
               <div class="card-body">
                 <p class="card-text ">'.$row['Title'].' </br>
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="badge badge-';
-                if ($row['Status'] == "Working") {
-                    echo 'danger';
-                }elseif ($row['Status'] == "Draft") {
-                    echo 'secondary';
-                }
-                else{
-                    echo 'success';
-                }
-                echo'">'.$row['Status'].'</span></p>
-                  <small class="text-muted p-1 deleteArticle" role="button" articleId="'.$row['Id'].'"> <i class="material-icons">delete</i> </small>
+                <span class="badge badge-danger">'.$row['Status'].'</span></p>
+                  <small class="text-muted p-1 deleteArticle" role="button" articleId="'.$row['Id'].'"> Delete <i class="material-icons">delete</i> </small>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a href="../../article.php?a='.$row['Id'].'" target="_blank" type="button" class="btn btn-sm btn-outline-secondary viewTest">View</a>
-                    <button type="button" class="btn btn-sm btn-outline-secondary editTest">Edit</button>
+                    <a href="#" onclick="'."alert('Article is Inactive.')".';" type="button" class="btn btn-sm btn-outline-secondary viewTest">View</a>
+                    <a href="./edit.php?a='.$row['Id'].'" type="button" class="btn btn-sm btn-outline-secondary editTest">Edit</a>
                   </div>
-                  <small class="text-muted">'.$row['Date'].'</small>
+                  <small class="text-muted">'.$row['Id'].'
+                  <a href="#" onclick="navigator.clipboard.writeText('."'".$row['Id']."'".');">
+                    <i class="material-icons text-muted">content_copy</i>
+                  </a></small>
                 </div>
               </div>
             </div>
@@ -219,7 +221,7 @@
         echo'</div>';
 
         // Query Draft
-        $sql = "SELECT `Id`, `Title`, `Date`, `Status`,  `YoutubeId`, `ImgListSize` FROM `Articles` WHERE `Status` = 'Draft' ORDER BY DateTime DESC;";
+        $sql = "SELECT `Id`, `Title`, `Date`, `Status`,  `YoutubeId`, `ImgListSize` FROM `Articles` WHERE `Status` = 'Draft' ".$nonAdminSql." ORDER BY DateTime DESC;";
         // $sql = "SELECT `testId`, `name`,`date`,`status` FROM `main` WHERE `status` = 'Draft' ORDER BY Sdate DESC;";
         
         $result = mysqli_query($conn,$sql);
@@ -251,24 +253,18 @@
               <div class="card-body">
                 <p class="card-text ">'.$row['Title'].' </br>
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="badge badge-';
-                if ($row['Status'] == "Working") {
-                    echo 'danger';
-                }elseif ($row['Status'] == "Draft") {
-                    echo 'primary';
-                }
-                else{
-                    echo 'success';
-                }
-                echo'">'.$row['Status'].'</span></p>
-                  <small class="text-muted p-1 deleteArticle" role="button" articleId="'.$row['Id'].'"> <i class="material-icons">delete</i> </small>
+                <span class="badge badge-primary">'.$row['Status'].'</span></p>
+                  <small class="text-muted p-1 deleteArticle" role="button" articleId="'.$row['Id'].'"> Delete <i class="material-icons">delete</i> </small>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a href="../../article.php?a='.$row['Id'].'" target="_blank" type="button" class="btn btn-sm btn-outline-success viewTest">View</a>
-                    <button type="button" class="btn btn-sm btn-outline-success editTest">Edit</button>
+                    <a href="#" onclick="'."alert('Article is Inactive.')".';" type="button" class="btn btn-sm btn-outline-success viewTest">View</a>
+                    <a href="./edit.php?a='.$row['Id'].'" type="button" class="btn btn-sm btn-outline-success editTest">Edit</a>
                   </div>
-                  <small class="text-muted">'.$row['Date'].'</small>
+                  <small class="text-muted">'.$row['Id'].'
+                  <a href="#" onclick="navigator.clipboard.writeText('."'".$row['Id']."'".');">
+                    <i class="material-icons text-muted">content_copy</i>
+                  </a></small>
                 </div>
               </div>
             </div>
@@ -277,7 +273,7 @@
         echo'</div>';
 
         // Query Saved
-        $sql = "SELECT `Id`, `Title`, `Date`, `Status`,  `YoutubeId`, `ImgListSize` FROM `Articles` WHERE `Status` = 'Saved' ORDER BY DateTime DESC;";
+        $sql = "SELECT `Id`, `Title`, `Date`, `Status`,  `YoutubeId`, `ImgListSize` FROM `Articles` WHERE `Status` = 'Saved' ".$nonAdminSql." ORDER BY DateTime DESC;";
         
         $result = mysqli_query($conn,$sql);
         
@@ -308,25 +304,18 @@
               <div class="card-body">
                 <p class="card-text ">'.$row['Title'].' </br>
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                
-                <span class="badge badge-';
-                if ($row['Status'] == "Working") {
-                    echo 'danger';
-                }elseif ($row['Status'] == "Draft") {
-                    echo 'primary';
-                }
-                else{
-                    echo 'success';
-                }
-                echo'">'.$row['Status'].'</span></p>
-                  <small class="text-muted p-1 deleteArticle" role="button" articleId="'.$row['Id'].'"> <i class="material-icons">delete</i> </small>
+                <span class="badge badge-success">'.$row['Status'].'</span></p>
+                  <small class="text-muted p-1 deleteArticle" role="button" articleId="'.$row['Id'].'"> Delete <i class="material-icons">delete</i> </small>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a href="../../article.php?a='.$row['Id'].'" target="_blank" type="button" class="btn btn-sm btn-outline-primary viewTest">View</a>
                     <a href="./edit.php?a='.$row['Id'].'" type="button" class="btn btn-sm btn-outline-primary editTest">Edit</a>
                   </div>
-                  <small class="text-muted">'.$row['Id'].'</small>
+                  <small class="text-muted">'.$row['Id'].'
+                  <a href="#" onclick="navigator.clipboard.writeText('."'".$row['Id']."'".');">
+                    <i class="material-icons text-muted">content_copy</i>
+                  </a></small>
                 </div>
               </div>
             </div>
