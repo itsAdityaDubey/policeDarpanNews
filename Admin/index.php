@@ -48,7 +48,7 @@ session_start();
         </div>
         <br>
         <div class="p-3 text-center" style="height: 57px; background-color: #e9ecef;">
-          
+          <a href="">Become a <strong>Reporter</strong> at <strong>Police Darpan</strong></a>
         </div>
         <div style="height: 10px; background-color: #0030ff;">
 
