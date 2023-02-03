@@ -166,7 +166,7 @@
         $sql = "SELECT `Id` FROM `Articles` ".$checkAdminSQL;
         $result = mysqli_query($conn,$sql);
         if (mysqli_num_rows($result) == 0) {
-          echo '<h6 class="head-sl text-muted blockquote-footer"><i>&nbsp; No Test(s) / Assignment(s) Created   &nbsp;</i></h6><br><br><br><br><br><br>';
+          echo '<h6 class="head-sl text-muted blockquote-footer"><i>&nbsp; No News(es) / Article(s) Created   &nbsp;</i></h6><br><br><br><br><br><br>';
         }
 
         // Query Working
