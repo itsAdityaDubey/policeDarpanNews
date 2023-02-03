@@ -83,7 +83,7 @@
  <!-- Page content wrapper-->
  <div class="inline" id="page-content-wrapper">
   <!-- Top navigation-->
-  <div class="panel-header" style="height: 100px;">
+  <div class="panel-header" style="height: 124px;">
     <nav class="navbar navbar-expand-lg pt-0">
       <div class="d-flex w-50 mr-auto"><a class="navbar-brand text-light"  href="#" id="sidebarToggle">&#9776; </a>
         <span class="navbar-brand text-light">Regester</span></div>

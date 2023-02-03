@@ -82,7 +82,7 @@
  <!-- Page content wrapper-->
  <div class="inline" id="page-content-wrapper">
   <!-- Top navigation-->
-  <div class="panel-header" style="height: 100px;">
+  <div class="panel-header" style="height: 124px;">
     <nav class="navbar navbar-expand-lg pt-0">
       <div class="d-flex w-50 mr-auto"><a class="navbar-brand text-light"  href="#" id="sidebarToggle">&#9776; </a>
         <span class="navbar-brand text-light">Dashboard</span></div>
@@ -107,6 +107,11 @@
         </a>
       </div>
     </nav>
+    <div class="container d-inline d-lg-none">
+      <button class="btn text-light btn-sm btn-primary rounded-pill ml-2 font-weight-bold" data-toggle="modal" data-target="#createTestModal">
+        <span class="material-icons">newspaper</span> Create New Article
+      </button>
+    </div>
   </div>
 
  <!-- Create Articel content-->
