@@ -334,6 +334,9 @@
                     <div class="col-sm-4 pt-2">
                       <select id="articleCategory" class="custom-select mb-2" required>
                         <option value="" selected>Select Category</option>
+                        <option value="Genral">	Genral</option>
+                        <option value="Health">	Health</option>
+                        <option value="Welfare">	Welfare</option>
                         <option value="Politics">	Politics</option>
                         <option value="Religion">	Religion</option>
                         <option value="Business">	Business</option>
