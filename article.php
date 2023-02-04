@@ -328,7 +328,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6 col-md-4">
                                         <span class="fs-13 ms-2 fw-bold float-sm-end">
                                             <?php echo $District; ?>
                                         </span><br>
