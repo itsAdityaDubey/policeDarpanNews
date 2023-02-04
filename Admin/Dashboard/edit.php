@@ -306,7 +306,7 @@
                         </div>
                         <div class="col-10 pl-4 pt-1">
                           <span class="font-weight-bold"><?php echo $First_Name.' '.$Last_Name; ?></span><i class="material-icons text-success ml-2">verified</i> <br>
-                          <span class="small pt-0"><?php echo date("Y-m-d") ?></span>
+                          <span class="small pt-0"><?php echo $Date; ?></span>
                         </div>
                       </div>
                     </div>
