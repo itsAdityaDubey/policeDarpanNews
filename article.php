@@ -328,7 +328,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <span class="fs-13 ms-2 fw-bold float-sm-end">
                                             <?php echo $District; ?>
                                         </span><br>
@@ -336,13 +336,14 @@
                                             <?php echo $Date; ?>
                                         </span>
                                     </div>
-                                <div class="col-8 d-block d-lg-none ">
+                                <div class="col-6 px-0 d-inline d-lg-none ">
                                     <!-- AddToAny BEGIN -->
                                     <div class="float-end a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo $currentUrl; ?>" data-a2a-title="<?php echo $Title; ?>">
                                     
                                     <a class="a2a_button_whatsapp"></a>
                                     <a class="a2a_button_facebook"></a>
                                     <a class="a2a_button_twitter"></a>
+                                    <a class="a2a_button_linkedin"></a>
                                     </div>
                                     <script async src="https://static.addtoany.com/menu/page.js"></script>
                                     <!-- AddToAny END -->
@@ -356,6 +357,7 @@
                                     <a class="a2a_button_whatsapp"></a>
                                     <a class="a2a_button_facebook"></a>
                                     <a class="a2a_button_twitter"></a>
+                                    <a class="a2a_button_linkedin"></a>
                                     </div>
                                     <script async src="https://static.addtoany.com/menu/page.js"></script>
                                     <!-- AddToAny END -->
