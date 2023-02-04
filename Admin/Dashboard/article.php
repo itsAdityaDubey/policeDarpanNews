@@ -131,7 +131,7 @@
   <div class="panel-header" style="height: 124px;">
     <nav class="navbar navbar-expand-lg pt-0">
       <div class="d-flex w-50 mr-auto"><a class="navbar-brand text-light"  href="#" id="sidebarToggle">&#9776; </a>
-        <span class="navbar-brand text-light">Profile</span></div>
+        <span class="navbar-brand text-light">Create Article</span></div>
       <div>
         <a herf="#" role="button" class="navbar-brand text-light">
         <span class="material-icons">account_circle</span> 
@@ -146,7 +146,9 @@
                 exit;
             }
             while ($row = mysqli_fetch_assoc($result)) {
-            echo $row['First_Name'].' '.$row['Last_Name'];
+            $First_Name=$row['First_Name'];
+            $Last_Name=$row['Last_Name'];
+            echo $First_Name.' '.$Last_Name;
             }
             CloseCon($conn);
          ?>
@@ -294,7 +296,7 @@
                           <span class="material-icons text-primary" style="font-size: min(16vw, 52px);">account_circle</span>
                         </div>
                         <div class="col-10 pl-4 pt-1">
-                          <span class="font-weight-bold">Aditya Dubey</span><i class="material-icons text-success ml-2">verified</i> <br>
+                          <span class="font-weight-bold"><?php echo $First_Name.' '.$Last_Name; ?></span><i class="material-icons text-success ml-2">verified</i> <br>
                           <span class="small pt-0"><?php echo date("Y-m-d") ?></span>
                         </div>
                       </div>
@@ -314,10 +316,12 @@
                         <option value="Jalandhar">	Jalandhar</option>
                         <option value="Kapurthala">	Kapurthala</option>
                         <option value="Ludhiana">	Ludhiana</option>
+                        <option value="Lohian Khas">	Lohian Khas</option>
                         <option value="Malerkotla">	Malerkotla</option>
                         <option value="Mansa">	Mansa</option>
                         <option value="Moga">	Moga</option>
                         <option value="Sri Muktsar Sahib">	Sri Muktsar Sahib</option>
+			<option value="Sultanpur Lodhi">	Sultanpur Lodhi</option>
                         <option value="Pathankot"> Pathankot</option>
                         <option value="Patiala"> Patiala</option>
                         <option value="Rupnagar"> Rupnagar</option>
