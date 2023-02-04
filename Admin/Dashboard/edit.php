@@ -132,7 +132,7 @@
   <div class="panel-header" style="height: 124px;">
     <nav class="navbar navbar-expand-lg pt-0">
       <div class="d-flex w-50 mr-auto"><a class="navbar-brand text-light"  href="#" id="sidebarToggle">&#9776; </a>
-        <span class="navbar-brand text-light">Profile</span></div>
+        <span class="navbar-brand text-light">Edit Article</span></div>
       <div>
         <a herf="#" role="button" class="navbar-brand text-light">
         <span class="material-icons">account_circle</span> 
@@ -325,10 +325,12 @@
                         <option value="Jalandhar">	Jalandhar</option>
                         <option value="Kapurthala">	Kapurthala</option>
                         <option value="Ludhiana">	Ludhiana</option>
+                        <option value="Lohian Khas">	Lohian Khas</option>
                         <option value="Malerkotla">	Malerkotla</option>
                         <option value="Mansa">	Mansa</option>
                         <option value="Moga">	Moga</option>
                         <option value="Sri Muktsar Sahib">	Sri Muktsar Sahib</option>
+			<option value="Sultanpur Lodhi">	Sultanpur Lodhi</option>
                         <option value="Pathankot"> Pathankot</option>
                         <option value="Patiala"> Patiala</option>
                         <option value="Rupnagar"> Rupnagar</option>
