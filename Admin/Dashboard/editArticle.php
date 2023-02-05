@@ -116,7 +116,7 @@ include '../modules/conn.php';
     $articleCheck=0;
 
     $conn = OpenCon();
-    $sql = "UPDATE `Articles` SET `Title`='$articleTitle', `Article`='$articleData', `District`='$articleDistrict', `Category`='$articleCategory', `Status`='$articleStatus', `ImgListSize`='$noImgs', `ImgCap1`='$ImgCap1', `ImgCap2`='$ImgCap2', `ImgCap3`='$ImgCap3', `ImgCap4`='$ImgCap4', `ImgCap5`='$ImgCap5', `YoutubeId`='$youtubeId', `WriterId`='".$_SESSION["memberId"]."'
+    $sql = "UPDATE `Articles` SET `Title`='$articleTitle', `Article`='$articleData', `District`='$articleDistrict', `Category`='$articleCategory', `Status`='$articleStatus', `ImgListSize`='$noImgs', `ImgCap1`='$ImgCap1', `ImgCap2`='$ImgCap2', `ImgCap3`='$ImgCap3', `ImgCap4`='$ImgCap4', `ImgCap5`='$ImgCap5', `YoutubeId`='$youtubeId'
     WHERE `Id`= '$articleId'";
         $result = mysqli_query($conn,$sql);
     if (!$result) {
