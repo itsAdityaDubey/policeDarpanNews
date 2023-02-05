@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['Edit_Access'])){
  if($_SESSION['Edit_Access'] == "Allow"){
 //    header("Location: ./Dashboard");
-  echo '1';
+  echo '1'.$_SESSION['Login_code'];
    }
 }
 ?>
