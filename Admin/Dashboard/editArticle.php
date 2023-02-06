@@ -59,8 +59,6 @@ include '../modules/conn.php';
       $locations = "../../images/".$articleId.'*.*';
       $thumbnails = "../../images/thumbnail/".$articleId.'*.*';
 
-      chmod($locations, 0777);
-      
       if(array_map('unlink', glob($locations))){
       };
 
