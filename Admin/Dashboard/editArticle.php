@@ -56,8 +56,8 @@ include '../modules/conn.php';
     if (isset($_FILES["imagefiles"]["name"])) {
       $imageCheck=0;
 
-      $locations = "../../images/".$articleId.'*.*';
-      $thumbnails = "../../images/thumbnail/".$articleId.'*.*';
+      $locations = "https://policedarpannews.in/images/".$articleId.'*.*';
+      $thumbnails = "https://policedarpannews.in/images/thumbnail/".$articleId.'*.*';
 
       if(array_map('unlink', glob($locations))){
       };
