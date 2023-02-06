@@ -237,7 +237,7 @@
       </div>
       <div class="modal-body p-0">
             <div class="pl-3 pr-3 pt-3">
-              <img src="" class="w-100" id="imgProCapImg" alt="Img">
+              <img src="" class="w-100 mb-2" id="imgProCapImg" alt="Img">
               <input class="form-control form-control-sm" type="text" id="imgProCaptions" placeholder="Captions">
               <input type="hidden" id="imgCaptionEditId" value="">
             </div>
@@ -427,6 +427,9 @@
       $("#imgCaptionEditId").val(imgNum);
       $('#imgProCapImg').attr('src', imgSrc);
       $('#editImgPro').modal('toggle');
+
+      let imgCap = $("#img-cap-"+imgNum).val();
+      $("#imgProCaptions").val(imgCap);
     });
 
     $(document).on('click', '#SaveImgEdit', function(){
