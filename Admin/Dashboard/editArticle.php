@@ -59,12 +59,12 @@ include '../modules/conn.php';
       $locations = "../../images/".$articleId.'*.*';
       $thumbnails = "../../images/thumbnail/".$articleId.'*.*';
 
+      chmod($locations, 0777);
+      
       if(array_map('unlink', glob($locations))){
-          echo 'al';
       };
 
       if(array_map('unlink', glob($thumbnails))){
-          echo 'al';
       };
       
       for($i=0;$i<count($_FILES["imagefiles"]["name"]);$i++)  
