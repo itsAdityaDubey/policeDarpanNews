@@ -410,9 +410,9 @@
       let check = $('.btn-edit-image').prop( 'disabled');
       if(check){
         alert("Please Choose Images again to change.");
+      }else{$(this).sortable( "enable" );
       }
   });
-  $(document).on('click', '#pro-image', function (){$(this).sortable( "enable" ); });
 </script>
 <script src="../assets/js/dashboard.js"></script>
 <script>
