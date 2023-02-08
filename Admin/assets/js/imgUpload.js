@@ -47,6 +47,7 @@ function readImage() {
             alert('Max 5 images allowed');
         } else {
             setImagesValInt(files.length);
+            $('.preview-images-zone').sortable( "enable" );
             for (let i = 0; i < files.length; i++) {
                 var file = files[i];
                 if (!file.type.match('image')) continue;

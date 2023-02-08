@@ -281,7 +281,7 @@
                         echo ' '.$i;
                      }?>">
                     <input type="file" id="pro-image"  accept="image/*" name="imagefiles[]" style="display: none;" multiple>                
-                  <div class="border rounded h-100 pt-2 pl-2 mb-2">
+                  <div class="border proImgArea rounded h-100 pt-2 pl-2 mb-2">
                       <a href="javascript:void(0)" onclick="$('#pro-image').click();" >Choose Image</a> <a href="#" class="float-right mr-2" onclick="clearImages()"> <i class="material-icons">delete</i> </a>
                       <div class="preview-images-zone h-100 p-2">
                         <?php for ($i=1; $i <= $ImgListSize; $i++) { ?>
@@ -410,7 +410,6 @@
       let check = $('.btn-edit-image').prop( 'disabled');
       if(check){
         alert("Please Choose Images again to change.");
-      }else{$(this).sortable( "enable" );
       }
   });
 </script>
