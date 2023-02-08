@@ -282,7 +282,7 @@
                      }?>">
                     <input type="file" id="pro-image"  accept="image/*" name="imagefiles[]" style="display: none;" multiple>                
                   <div class="border rounded h-100 pt-2 pl-2 mb-2">
-                      <a href="javascript:void(0)" onclick="$('#pro-image').click();" onchange="enbImgSort()" >Choose Image</a> <a href="#" class="float-right mr-2" onclick="clearImages()"> <i class="material-icons">delete</i> </a>
+                      <a href="javascript:void(0)" onclick="$('#pro-image').click();" >Choose Image</a> <a href="#" class="float-right mr-2" onclick="clearImages()"> <i class="material-icons">delete</i> </a>
                       <div class="preview-images-zone h-100 p-2">
                         <?php for ($i=1; $i <= $ImgListSize; $i++) { ?>
                             <div class="preview-image preview-show-<?php echo $i; ?>">
@@ -412,6 +412,7 @@
         alert("Please Choose Images again to change.");
       }
   });
+  $(document).on('click', '#pro-image', function (){$(this).sortable( "enable" ); });
 </script>
 <script src="../assets/js/dashboard.js"></script>
 <script>
