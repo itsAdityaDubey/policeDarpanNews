@@ -407,9 +407,11 @@
     $('.btn-edit-image').prop( 'disabled', true );
   });
   $(document).on('click', '.preview-images-zone', function(){
-      $(this).sortable( "enable" );
-      $('.btn-edit-image').prop( 'disabled', false );
-    });
+      let check = $('.btn-edit-image').prop( 'disabled');
+      if(check){
+        alert("Please Choose Images again to change.");
+      }
+  });
 </script>
 <script src="../assets/js/dashboard.js"></script>
 <script>
