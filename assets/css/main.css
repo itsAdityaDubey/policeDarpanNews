@@ -175,3 +175,8 @@ body {
     overflow: hidden;
 }
 }
+.testimonial{
+    border: 1px solid #e6e7e8;
+    padding: 25px 35px;
+    margin-bottom: 30px;
+}

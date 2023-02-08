@@ -159,6 +159,7 @@
         global $ImgCap3;
         global $ImgCap4;
         global $ImgCap5;
+        global $WriterId;
 
         $Title = $row['Title'];
         $Article = $row['Article'];
@@ -172,6 +173,36 @@
         $ImgCap3=$row['ImgCap3'];
         $ImgCap4=$row['ImgCap4'];
         $ImgCap5=$row['ImgCap5'];
+        $WriterId=$row['WriterId'];
+
+        CloseCon($conn);
+    }
+
+    function getWriterDetails($id)
+    {
+        $conn = OpenCon();
+
+        $sql = "SELECT `First_Name`,`Middle_Name`,`Last_Name`,`Phone`,`City` FROM `users` WHERE `ID`='".$id."';";
+
+        $result = mysqli_query($conn,$sql);
+
+        if (!$result) {
+            echo "Could not successfully run query ($sql) from DB: " . mysqli_error();
+            exit;
+        }
+        $row = mysqli_fetch_assoc($result);
+
+        global $First_Name;
+        global $Middle_Name;
+        global $Last_Name;
+        global $Phone;
+        global $City;
+
+        $First_Name = $row['First_Name'];
+        $Middle_Name = $row['Middle_Name'];
+        $Last_Name = $row['Last_Name'];
+        $Phone = $row['Phone'];
+        $City = $row['City'];
 
         CloseCon($conn);
     }

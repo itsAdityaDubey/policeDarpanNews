@@ -365,6 +365,35 @@
                                 <p class="mb-4 fs-15">
                                     <?php echo $Article; ?>
                                 </p>
+                                <?php getWriterDetails($WriterId) ?>
+                                <div class="testimonial rounded">
+                                    <div class="d-lg-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="rotate-img">
+                                                <img src="../assets/img/logoRound.png" width="54px" height="54px" style="object-fit:cover;" alt="face" class="img-fluid rounded-pill me-3">
+                                            </div>
+                                            <div>
+                                                <p class="small mb-1 line-height-xs">
+                                                Of the Author
+                                                </p>
+                                                <p class="fs-5 fw-bolder mb-0 line-height-xs">
+                                                <?php echo $First_Name." ".$Middle_Name." ".$Last_Name; ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                                <p class="small fw-bold mb-1 line-height-xs">
+                                                <?php echo $City; ?>
+                                                </p>
+                                                <p class="fs-6 fw-bold mb-0 line-height-xs">
+                                                <?php echo $Phone; ?>
+                                                </p>
+                                            </div>
+                                    </div>
+                                    <p class="fs-12">
+                                        A popular news reporter at Police Darpan. For any news in <?php echo $City; ?> please contact the reporter.
+                                        You can also write at <i>editor@policedarpannews.in</i> to the editor Police Darpan.
+                                </div>
                             </div>
                         </div>
                     </div>
