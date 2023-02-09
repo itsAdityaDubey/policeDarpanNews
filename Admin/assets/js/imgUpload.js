@@ -61,6 +61,7 @@ function readImage() {
                         '<div class="number">' + num + '</div>' +
                         '<input type="hidden" id="img-cap-' + num + '">' +
                         '<div class="image-zone"><img id="' + num + '" imgId="' + num + '" src="' + picFile.result + '"></div>' +
+                        '<div class="tools-edit-image"><a href="javascript:void(0)" data-no="' + num + '" class="btn btn-light btn-sm btn-edit-image">edit</a></div>' +
                         '</div>';
 
                     output.append(html);
