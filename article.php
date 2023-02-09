@@ -315,8 +315,7 @@
                                     <div class="col-sm-8  d-none d-md-block ">
                                         <div class="row">
                                             <div class="col-2">
-                                                <span class="material-icons text-primary"
-                                                    style="font-size: min(16vw, 52px);">account_circle</span>
+                                                <img src="../assets/img/logoRound.png" style="width: min(16vw, 52px);" style="object-fit:cover;" alt="face" class="rounded-pill me-3">
                                             </div>
                                             <div class="col-10 pt-1">
                                                 <h5 class="fw-bold mb-0">Police Darpan<i
