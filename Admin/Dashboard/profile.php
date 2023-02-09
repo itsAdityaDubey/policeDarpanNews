@@ -24,12 +24,16 @@
   <link rel="stylesheet" href="../assets/css/bootstrap.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <!-- Police Darpan CSS/Js -->
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/imgUpload.css">
+  <script src="../assets/js/profileImgUpload.js"></script>
   <title>Police Darpan | Admin</title>
 </head>
 
@@ -89,7 +93,7 @@
         <span class="navbar-brand text-light">Regester</span></div>
       <div>
         <a herf="#" role="button" class="navbar-brand text-light">
-          <span class="material-icons">account_circle</span> 
+          <img src="../assets/img/logoRound.png" class="rounded-pill" width="24px" height="24px" alt="Profile">
           <?php
             $conn = OpenCon();
             $sql = "SELECT Role,Email,Phone,First_Name,Middle_Name,Last_Name,Access,Address,City,State,PinCode
@@ -107,6 +111,95 @@
         </a>
       </div>
     </nav>
+  </div>
+
+ <!-- Create Articel content-->
+ <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-0">
+            <form method="POST" action="#">
+            <div class="pl-3 pr-3 pt-3">
+            <input type="file" id="pro-image"  accept="image/*" name="imagefiles[]" style="display: none;" multiple>                
+                  <div class="border rounded h-100 pt-2 pl-2 mb-2">
+                      <a href="javascript:void(0)" onclick="$('#pro-image').click()">Choose Profile Picture</a> <a href="#" class="float-right mr-2" onclick="clearImages()"> <i class="material-icons">delete</i> </a>
+                      <div class="preview-images-zone h-100 p-2">
+                      </div>
+                  </div>
+                    <div class="form-group">
+                      <label for="inputAddress">Address</label>
+                      <input type="text" name="Address" class="form-control" id="inputAddress" placeholder="Enter Address">
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" name="City" class="form-control" id="inputCity" required>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <select id="inputState" name="State" class="form-control" required>
+                            <option value="AN">Andaman and Nicobar Islands</option>
+                            <option value="AP">Andhra Pradesh</option>
+                            <option value="AR">Arunachal Pradesh</option>
+                            <option value="AS">Assam</option>
+                            <option value="BR">Bihar</option>
+                            <option value="CH">Chandigarh</option>
+                            <option value="CT">Chhattisgarh</option>
+                            <option value="DN">Dadra and Nagar Haveli</option>
+                            <option value="DD">Daman and Diu</option>
+                            <option value="DL">Delhi</option>
+                            <option value="GA">Goa</option>
+                            <option value="GJ">Gujarat</option>
+                            <option value="HR">Haryana</option>
+                            <option value="HP">Himachal Pradesh</option>
+                            <option value="JK">Jammu and Kashmir</option>
+                            <option value="JH">Jharkhand</option>
+                            <option value="KA">Karnataka</option>
+                            <option value="KL">Kerala</option>
+                            <option value="LA">Ladakh</option>
+                            <option value="LD">Lakshadweep</option>
+                            <option value="MP">Madhya Pradesh</option>
+                            <option value="MH">Maharashtra</option>
+                            <option value="MN">Manipur</option>
+                            <option value="ML">Meghalaya</option>
+                            <option value="MZ">Mizoram</option>
+                            <option value="NL">Nagaland</option>
+                            <option value="OR">Odisha</option>
+                            <option value="PY">Puducherry</option>
+                            <option value="PB">Punjab</option>
+                            <option value="RJ">Rajasthan</option>
+                            <option value="SK">Sikkim</option>
+                            <option value="TN">Tamil Nadu</option>
+                            <option value="TG">Telangana</option>
+                            <option value="TR">Tripura</option>
+                            <option value="UP">Uttar Pradesh</option>
+                            <option value="UT">Uttarakhand</option>
+                            <option value="WB">West Bengal</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-2">
+                        <label for="inputPinCode">Pin Code</label>
+                        <input type="text" name="PinCode" class="form-control" id="inputPinCode">
+                      </div>
+                    </div>
+            </div>
+            <br>
+            <div class="p-3  text-center" style="height: 57px; background-color: #e9ecef; border-bottom: 6px solid #353375;">
+                <a type="submit" href="#" class="" data-dismiss="modal" aria-label="Close">
+                    Save
+                </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 
  <!-- Create Articel content-->
@@ -161,7 +254,7 @@
               <div class="card shadow-sm">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                  <span class="material-icons" style="vertical-align: text-bottom;font-size: 96px;">account_circle</span> 
+                  <img src="../assets/img/logoRound.png" class="rounded-pill" width="128px" height="128px" alt="Profile">
                     <div class="mt-3">
                       <h4>
                       <?php echo $row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name']; ?>
@@ -171,7 +264,7 @@
                       </p>
                       <p class="text-muted font-size-sm">( <?php echo $row['Role']; ?> )</p>
                       <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#changePassword">
-                        Change Password
+                      <span class="material-icons">lock_reset</span> Change Password
                       </button>
                     </div>
                   </div>
@@ -181,6 +274,12 @@
             <div class="col-md-8">
               <div class="card  shadow-sm mb-3">
                 <div class="card-body">
+                  <div class="row mb-2 px-2">
+                    <div class="col-12 px-0">
+                      <button type="button" class="btn btn-sm float-right btn-outline-primary" data-toggle="modal" data-target="#editProfile" disabled>
+                      <span class="material-icons">edit_square</span> Edit Profile
+                      </button></div>
+                  </div>
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Full Name</h6>
@@ -217,6 +316,23 @@
                             }
                             mysqli_free_result($result);
                       ?>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-7 mb-2">
+                      <select class="form-control" id="" disabled>
+                        <option>Select Document</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                    <div class="col-sm-5 mb-2 text-secondary">
+                    <button type="button" class="btn btn-outline-primary btn-block" disabled>
+                    <span class="material-icons">download</span> Download
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -43,8 +43,8 @@ function readImage() {
         var output = $(".preview-images-zone");
         output.empty();
 
-        if (files.length > 5) {
-            alert('Max 5 images allowed');
+        if (files.length > 1) {
+            alert('Max 1 images allowed');
         } else {
             setImagesValInt(files.length);
             $('.preview-images-zone').sortable( "enable" );
@@ -58,9 +58,8 @@ function readImage() {
                 picReader.addEventListener('load', function (event) {
                     var picFile = event.target;
                     var html = '<div class="preview-image preview-show-' + num + '">' +
-                        '<div class="number">' + num + '</div>' +
                         '<input type="hidden" id="img-cap-' + num + '">' +
-                        '<div class="image-zone"><img id="' + num + '" imgId="' + num + '" src="' + picFile.result + '"></div>' +
+                        '<div style="" class="image-zone"><img id="' + num + '" imgId="' + num + '" src="' + picFile.result + '"></div>' +
                         '</div>';
 
                     output.append(html);

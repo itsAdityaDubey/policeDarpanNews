@@ -135,7 +135,7 @@
         <span class="navbar-brand text-light">Edit Article</span></div>
       <div>
         <a herf="#" role="button" class="navbar-brand text-light">
-        <span class="material-icons">account_circle</span> 
+        <img src="../assets/img/logoRound.png" class="rounded-pill" width="24px" height="24px" alt="Profile">
           <?php
             $conn = OpenCon();
             $sql = "SELECT Role,Email,Phone,First_Name,Middle_Name,Last_Name,Access,Address,City,State,PinCode

@@ -88,7 +88,7 @@
         <span class="navbar-brand text-light">Dashboard</span></div>
       <div>
         <a herf="#" role="button" class="navbar-brand text-light">
-          <span class="material-icons">account_circle</span> 
+          <img src="../assets/img/logoRound.png" class="rounded-pill" width="24px" height="24px" alt="Profile">
           <?php
             include '../modules/conn.php';
             $conn = OpenCon();
