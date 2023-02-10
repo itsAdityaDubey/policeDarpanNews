@@ -369,7 +369,12 @@
                                     <div class="d-lg-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center mb-3">
                                             <div class="rotate-img">
-                                                <img src="../assets/img/logoRound.png" width="54px" height="54px" style="object-fit:cover;" alt="face" class="img-fluid rounded-pill me-3">
+                                            <?php if ($ProfilePicture==1) { ?>
+                                                <img src="/images/thumbnail/<?php echo $WriterId."_0"; ?>.jpg" style="object-fit:cover;" class="rounded-pill me-2" width="54px" height="54px" alt="Profile">
+                                            <?php } else { ?>
+                                                <img src="../assets/img/logoRound.png" width="54px" height="54px" style="object-fit:cover;" alt="Profile" class="rounded-pill me-3  me-2">
+                                            <?php } ?>
+                                                
                                             </div>
                                             <div>
                                                 <p class="small mb-1 line-height-xs">

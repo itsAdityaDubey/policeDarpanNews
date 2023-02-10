@@ -20,6 +20,7 @@ $(document).ready(function () {
 function clearImages() {
     $("#pro-image").val('');
     $(".preview-images-zone").empty();
+    $('#profilePicture').val('0');
 }
 function setImagesVal() {
     let sortListVal='';
@@ -61,7 +62,7 @@ function readImage() {
                         '<input type="hidden" id="img-cap-' + num + '">' +
                         '<div style="" class="image-zone"><img id="' + num + '" imgId="' + num + '" src="' + picFile.result + '"></div>' +
                         '</div>';
-
+                    $('#profilePicture').val('1');
                     output.append(html);
                     num = num + 1;
                 });

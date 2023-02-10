@@ -182,7 +182,7 @@
     {
         $conn = OpenCon();
 
-        $sql = "SELECT `First_Name`,`Middle_Name`,`Last_Name`,`Phone`,`City` FROM `users` WHERE `ID`='".$id."';";
+        $sql = "SELECT `First_Name`,`Middle_Name`,`Last_Name`,`Phone`,`City`,`ProfilePicture` FROM `users` WHERE `ID`='".$id."';";
 
         $result = mysqli_query($conn,$sql);
 
@@ -197,12 +197,14 @@
         global $Last_Name;
         global $Phone;
         global $City;
+        global $ProfilePicture;
 
         $First_Name = $row['First_Name'];
         $Middle_Name = $row['Middle_Name'];
         $Last_Name = $row['Last_Name'];
         $Phone = $row['Phone'];
         $City = $row['City'];
+        $ProfilePicture = $row['ProfilePicture'];
 
         CloseCon($conn);
     }

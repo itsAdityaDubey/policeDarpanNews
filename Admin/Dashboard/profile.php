@@ -96,7 +96,7 @@
           <img src="../assets/img/logoRound.png" class="rounded-pill" width="24px" height="24px" alt="Profile">
           <?php
             $conn = OpenCon();
-            $sql = "SELECT Role,Email,Phone,First_Name,Middle_Name,Last_Name,Access,Address,City,State,PinCode
+            $sql = "SELECT Role,Email,Phone,First_Name,Middle_Name,Last_Name,Access,Address,City,State,PinCode,ProfilePicture
                 FROM   users
                 WHERE ID = '".$_SESSION['Login_ID']."'";
                 $result = mysqli_query($conn,$sql);
@@ -130,21 +130,28 @@
             <input type="file" id="pro-image"  accept="image/*" name="imagefiles[]" style="display: none;" multiple>                
                   <div class="border rounded h-100 pt-2 pl-2 mb-2">
                       <a href="javascript:void(0)" onclick="$('#pro-image').click()">Choose Profile Picture</a> <a href="#" class="float-right mr-2" onclick="clearImages()"> <i class="material-icons">delete</i> </a>
+                      <input type="hidden" id="profilePicture" value="1">
                       <div class="preview-images-zone h-100 p-2">
+                      <?php if ($row['ProfilePicture']==1) { ?>
+                            <div class="preview-image preview-show-1">
+                            <div class="image-zone"><img id="1" imgId="1" src="/images/thumbnail/<?php echo $_SESSION['Login_ID']."_0"; ?>.jpg"></div>
+                            </div>
+                            <script>$('#profilePicture').val('1');</script>
+                        <?php }  ?>
                       </div>
                   </div>
                     <div class="form-group">
-                      <label for="inputAddress">Address</label>
-                      <input type="text" name="Address" class="form-control" id="inputAddress" placeholder="Enter Address">
+                      <label for="profileAddress">Address</label>
+                      <input type="text" name="Address" class="form-control" id="profileAddress" value="<?php echo $row['Address']; ?>" placeholder="Enter Address">
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md-6">
-                        <label for="inputCity">City</label>
-                        <input type="text" name="City" class="form-control" id="inputCity" required>
+                        <label for="profileCity">City</label>
+                        <input type="text" name="City" class="form-control" value="<?php echo $row['City']; ?>" id="profileCity" required>
                       </div>
                       <div class="form-group col-md-4">
-                        <label for="inputState">State</label>
-                        <select id="inputState" name="State" class="form-control" required>
+                        <label for="profileState">State</label>
+                        <select id="profileState" name="State" class="form-control" required>
                             <option value="AN">Andaman and Nicobar Islands</option>
                             <option value="AP">Andhra Pradesh</option>
                             <option value="AR">Arunachal Pradesh</option>
@@ -185,14 +192,14 @@
                         </select>
                       </div>
                       <div class="form-group col-md-2">
-                        <label for="inputPinCode">Pin Code</label>
-                        <input type="text" name="PinCode" class="form-control" id="inputPinCode">
+                        <label for="profilePinCode">Pin Code</label>
+                        <input type="text" name="PinCode" class="form-control" value="<?php echo $row['PinCode']; ?>" id="profilePinCode">
                       </div>
                     </div>
             </div>
             <br>
             <div class="p-3  text-center" style="height: 57px; background-color: #e9ecef; border-bottom: 6px solid #353375;">
-                <a type="submit" href="#" class="" data-dismiss="modal" aria-label="Close">
+                <a id="saveProfileBtn" href="#" class="" data-dismiss="modal" aria-label="Close">
                     Save
                 </a>
             </div>
@@ -202,6 +209,10 @@
     </div>
   </div>
 
+  <script>
+    $('#profileState').val('<?php echo $row['State']; ?>');
+  </script>
+              
  <!-- Create Articel content-->
  <div class="modal fade" id="createTestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -254,7 +265,11 @@
               <div class="card shadow-sm">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                  <img src="../assets/img/logoRound.png" class="rounded-pill" width="128px" height="128px" alt="Profile">
+                  <?php if ($row['ProfilePicture']==1) { ?>
+                    <img src="/images/thumbnail/<?php echo $_SESSION['Login_ID']."_0"; ?>.jpg"  style="object-fit:cover;" class="rounded-pill" width="128px" height="128px" alt="Profile">
+                  <?php } else { ?>
+                    <img src="../assets/img/logoRound.png" style="object-fit:cover;" class="rounded-pill" width="128px" height="128px" alt="Profile">
+                  <?php } ?>
                     <div class="mt-3">
                       <h4>
                       <?php echo $row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name']; ?>
@@ -276,8 +291,11 @@
                 <div class="card-body">
                   <div class="row mb-2 px-2">
                     <div class="col-12 px-0">
-                      <button type="button" class="btn btn-sm float-right btn-outline-primary" data-toggle="modal" data-target="#editProfile" disabled>
-                      <span class="material-icons">edit_square</span> Edit Profile
+                      <button type="button" class="btn btn-sm float-right btn-outline-primary" data-toggle="modal" data-target="#editProfile">
+                      <div class="spinner-border spinner-border-sm text-primary" id="editProfileLoader" style="display: none;" role="status">
+                        <span class="sr-only">Updating...</span>
+                      </div>
+                      <span class="material-icons" id="editProfileDefault">edit_square</span> Edit Profile
                       </button></div>
                   </div>
                   <div class="row">
@@ -414,7 +432,67 @@
       }
       return true;
     });
-    </script>
+
+    $('#saveProfileBtn').click(function(){
+      saveProfile();
+    }); 
+
+    function saveProfile() {
+      var form = new FormData();
+      $( ".preview-images-zone" ).sortable({
+        disabled: true
+      });
+
+      var totalfiles = document.getElementById('pro-image').files.length;
+      for (var index = 0; index < totalfiles; index++) {
+        form.append("imagefiles[]", document.getElementById('pro-image').files[index]);
+        form.append("imgCap"+(index+1), $('#img-cap-'+(index+1)).val());
+      }
+      let profileAddress =  $('#profileAddress').val();
+      let profileCity =  $('#profileCity').val();
+      let profileState = $('#profileState').val();
+      let profilePinCode =  $('#profilePinCode').val();
+      let profilePicture =  $('#profilePicture').val();
+
+      if (profileAddress=='') {alert('Address cannot be empty');return 0;}
+      else if (profileCity=='') {alert('City cannot be empty');return 0;}
+      else if (profileState=='') {alert('Please select a State');return 0;}
+      else if (profilePinCode=='') {alert('Pin Code cannot be empty');return 0;}
+
+      form.append("profilePicture", profilePicture);
+
+      $('#profileAddress').prop( "disabled", true );
+      form.append("profileAddress", profileAddress);
+
+      $('#profileCity').prop( "disabled", true );
+      form.append("profileCity", profileCity);
+
+      $('#profileState').prop( "disabled", true );
+      form.append("profileState", profileState);
+
+      $('#profilePinCode').prop( "disabled", true );
+      form.append("profilePinCode", profilePinCode);
+      
+      $('#editProfileLoader').show();
+      $('#editProfileDefault').hide();
+
+      $.ajax({
+          url: "updateProfile.php",
+          type: "POST",
+          data:  form,
+          contentType: false,
+          processData:false,
+          success: function(result){
+            if (result == '200 Ok') {
+              alert('Profile Updated');
+              window.location.href = "./profile.php";
+            $('#editProfileLoader').hide();
+            $('#editProfileDefault').show();
+            }
+          }
+      });
+    }
+  </script>
 
 
 <?php 
