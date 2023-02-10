@@ -264,8 +264,8 @@
                   <?php if (isset($videoId)) { ?>
                     <div class="hytPlayerWrapOuter">
                       <div class="hytPlayerWrap embed-responsive embed-responsive-16by9 mb-2">
-                          <iframe loading="lazy" width="100%" height="100%" allow="fullscreen"
-                              src="https://www.youtube.com/embed/<?php if (isset($_POST['id'])) {echo $data[0];}?>?rel=0&enablejsapi=1"
+                          <iframe loading="lazy" width="100%" height="100%" allow="autoplay; fullscreen"
+                              src="https://www.youtube.com/embed/<?php if (isset($_POST['id'])) {echo $data[0];}?>?rel=0&modestbranding=1&autohide=1&showinfo=0&enablejsapi=1"
                               frameborder="0"
                           ></iframe>
                       </div>

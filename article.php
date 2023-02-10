@@ -271,8 +271,8 @@
                                     <?php if($YoutubeId!=''){ ?>
                                     <div class="hytPlayerWrapOuter">
                                         <div class="hytPlayerWrap ratio ratio-16x9 mb-2">
-                                            <iframe loading="lazy" width="100%" height="100%" allow="fullscreen"
-                                                src="https://www.youtube.com/embed/<?php echo $YoutubeId; ?>?rel=0&enablejsapi=1"
+                                            <iframe loading="lazy" width="100%" height="100%"  allow="autoplay; fullscreen"
+                                                src="https://www.youtube.com/embed/<?php echo $YoutubeId; ?>?rel=0&modestbranding=1&autohide=1&mute=1&showinfo=0&autoplay=1&enablejsapi=1"
                                                 frameborder="0"></iframe>
                                         </div>
                                     </div>
