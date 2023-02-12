@@ -238,7 +238,7 @@
       <div class="modal-body p-0">
             <div class="pl-3 pr-3 pt-3">
               <img src="" class="w-100 mb-2" id="imgProCapImg" alt="Img">
-              <input class="form-control form-control-sm" type="text" id="imgProCaptions" placeholder="Captions">
+              <input class="form-control form-control-sm" type="text" id="imgProCaptions" autocomplete="off" placeholder="Captions">
               <input type="hidden" id="imgCaptionEditId" value="">
             </div>
             <br>
