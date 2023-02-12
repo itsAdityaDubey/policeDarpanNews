@@ -39,8 +39,8 @@ include '../modules/conn.php';
       $imageCheck=0;
       for($i=0;$i<count($_FILES["imagefiles"]["name"]);$i++)  
       {  
-      $locations = "../../images/".$_SESSION['Login_ID'].'*.*';
-      $thumbnails = "../../images/thumbnail/".$_SESSION['Login_ID'].'*.*';
+      $locations = "../../images/".$_SESSION['Login_ID'].'_0.*';
+      $thumbnails = "../../images/thumbnail/".$_SESSION['Login_ID'].'_0.*';
       
       if(array_map('unlink', glob($locations))){
       };

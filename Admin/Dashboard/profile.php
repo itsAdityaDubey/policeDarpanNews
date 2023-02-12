@@ -134,7 +134,7 @@
                       <div class="preview-images-zone h-100 p-2">
                       <?php if ($row['ProfilePicture']==1) { ?>
                             <div class="preview-image preview-show-1">
-                            <div class="image-zone"><img id="1" imgId="1" src="/images/thumbnail/<?php echo $_SESSION['Login_ID']."_0"; ?>.jpg"></div>
+                            <div class="image-zone"><img id="1" imgId="1" src="/images/thumbnail/<?php echo $_SESSION['Login_ID']."_0"; ?>.jpg?<?php echo uniqid(); ?>"></div>
                             </div>
                             <script>$('#profilePicture').val('1');</script>
                         <?php }  ?>
@@ -266,7 +266,7 @@
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                   <?php if ($row['ProfilePicture']==1) { ?>
-                    <img src="/images/thumbnail/<?php echo $_SESSION['Login_ID']."_0"; ?>.jpg"  style="object-fit:cover;" class="rounded-pill" width="128px" height="128px" alt="Profile">
+                    <img src="/images/thumbnail/<?php echo $_SESSION['Login_ID']."_0"; ?>.jpg?<?php echo uniqid(); ?>"  style="object-fit:cover;" class="rounded-pill" width="128px" height="128px" alt="Profile">
                   <?php } else { ?>
                     <img src="../assets/img/logoRound.png" style="object-fit:cover;" class="rounded-pill" width="128px" height="128px" alt="Profile">
                   <?php } ?>
@@ -483,6 +483,7 @@
           contentType: false,
           processData:false,
           success: function(result){
+            console.log(result);
             if (result == '200 Ok') {
               alert('Profile Updated');
               window.location.href = "./profile.php";
