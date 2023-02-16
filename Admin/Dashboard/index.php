@@ -194,7 +194,7 @@
             echo '
          <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-              <img class="card-img-top" style="max-height: 250px;object-fit: cover;" src="'; 
+              <img class="card-img-top" style="max-height: 180px;object-fit: cover;" src="'; 
               if ($row['YoutubeId']!='') {
                 echo 'https://img.youtube.com/vi/'.$row['YoutubeId'].'/0.jpg';
               } else if ($row['ImgListSize']>0){
@@ -246,7 +246,7 @@
             echo '
          <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-              <img class="card-img-top" style="max-height: 250px;object-fit: cover;" src="'; 
+              <img class="card-img-top" style="max-height: 180px;object-fit: cover;" src="'; 
               if ($row['YoutubeId']!='') {
                 echo 'https://img.youtube.com/vi/'.$row['YoutubeId'].'/0.jpg';
               } else if ($row['ImgListSize']>0){
@@ -297,7 +297,7 @@
             echo '
          <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-              <img class="card-img-top" style="max-height: 250px;object-fit: cover;" src="'; 
+              <img class="card-img-top" style="max-height: 180px;object-fit: cover;" src="'; 
               if ($row['YoutubeId']!='') {
                 echo 'https://img.youtube.com/vi/'.$row['YoutubeId'].'/0.jpg';
               } else if ($row['ImgListSize']>0){

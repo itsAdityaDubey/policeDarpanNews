@@ -1,34 +1,23 @@
 <?php
     include './modules/newsalgos.php';
-    
-    getTrandingIds(3);
-    viewCounter($_GET['a']);
-    articleData($_GET['a']);
-    $currentUrl = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Police Darpan | Latest News</title>
+    <title>Police Darpan | Contact</title>
     <meta name="description" content="Get the latest buzz in the town first.">
-    <meta name="keywords" content="Latest News Punjabi Jalandhar Phagwara Punjab News news, Punjab News videos Punjab News photos Punjab News latest updates">
+    <meta name="keywords" content="Latest News Punjabi Jalandhar Phagwara">
     <meta name="author" content="Police Darpan">
     <meta name="author_email" content="editor@policedarpannews.in">
     <meta property="og:title" content="Police Darpan | Latest News" />
     <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="Police Darpan | News" />
-    <meta property="og:description" content="<?php echo $Title; ?>" />
-    <meta property="og:url" content="<?php echo $currentUrl; ?>" />
-    <meta property="og:image" content="<?php echo $thumbnailUrl; ?>" />
-    <meta property="twitter:image" content="<?php echo $thumbnailUrl; ?>">
-    <?php
-        if ($YoutubeId!='') {
-            echo '<meta property="og:video" content="https://www.youtube.com/v/<?php echo $YoutubeId; ?>" />';
-        }
-    ?>
-    <meta property="og:locale" content="pa" />
+    <meta property="og:site_name" content="Police Darpan" />
+    <meta property="og:description" content="Get the latest buzz in the town first." />
+    <meta property="og:url" content="https://policedarpannews.in/" />
+    <meta property="og:image" content="https://policedarpannews.in/assets/images/newbg.png" />
+    <meta property="og:locale" content="en_GB" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
@@ -39,42 +28,7 @@
         integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="canonical" href="<?php echo $currentUrl; ?>">
-    <style>
-        .hytPlayerWrap {
-            display: inline-block;
-            position: relative;
-        }
 
-        .hytPlayerWrap.ended::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            cursor: pointer;
-            background-color: black;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 64px 64px;
-            background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiB2aWV3Qm94PSIwIDAgNTEwIDUxMCI+PHBhdGggZD0iTTI1NSAxMDJWMEwxMjcuNSAxMjcuNSAyNTUgMjU1VjE1M2M4NC4xNSAwIDE1MyA2OC44NSAxNTMgMTUzcy02OC44NSAxNTMtMTUzIDE1My0xNTMtNjguODUtMTUzLTE1M0g1MWMwIDExMi4yIDkxLjggMjA0IDIwNCAyMDRzMjA0LTkxLjggMjA0LTIwNC05MS44LTIwNC0yMDQtMjA0eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==);
-        }
-
-        .hytPlayerWrap.paused::after {
-            content: "";
-            position: absolute;
-            top: 70px;
-            left: 0;
-            bottom: 50px;
-            right: 0;
-            cursor: pointer;
-            /* background-color: black; */
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 40px 40px;
-            background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSIxNzA2LjY2NyIgaGVpZ2h0PSIxNzA2LjY2NyIgdmlld0JveD0iMCAwIDEyODAgMTI4MCI+PHBhdGggZD0iTTE1Ny42MzUgMi45ODRMMTI2MC45NzkgNjQwIDE1Ny42MzUgMTI3Ny4wMTZ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+);
-        }
-    </style>
 </head>
 
 <body>
@@ -175,7 +129,7 @@
                                 <a class="nav-link text-light" href="#">Travel</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" href="./contact.php">Contact</a>
+                                <a class="nav-link text-light" href="#">Contact</a>
                             </li>
                         </ul>
                         <div class="d-flex float-end">
@@ -253,185 +207,66 @@
                             <?php echo $Title ?>
                         </span>
                         <?php }getBreaking('Religion'); if($Id!=''){?>
-                        <span role="button" title="Click to Read More" onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
-                        <span class="badge bg-dark mx-2">Religion</span> <?php echo $Title ?> </span>
+                        <span role="button" title="Click to Read More"
+                            onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
+                            <span class="badge bg-dark mx-2">Religion</span>
+                            <?php echo $Title ?>
+                        </span>
                         <?php } ?>
                     </marquee>
                 </div>
             </div>
         </div>
     </div>
-    <div class="content-wrapper mb-4">
-        <div class="container">
-            <?php getFullArticle($_GET['a']); ?>
-            <div class="row">
-                <div class="col-sm-8 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div>
-                                    <?php if($YoutubeId!=''){ ?>
-                                    <div class="hytPlayerWrapOuter">
-                                        <div class="hytPlayerWrap ratio ratio-16x9 mb-2">
-                                            <iframe loading="lazy" width="100%" height="100%"  allow="autoplay; fullscreen"
-                                                src="https://www.youtube.com/embed/<?php echo $YoutubeId; ?>?rel=0&modestbranding=1&autohide=1&mute=1&showinfo=0&autoplay=1&enablejsapi=1"
-                                                frameborder="0"></iframe>
-                                        </div>
-                                    </div>
-                                    <?php } ?>
 
-                                    <?php if($ImgListSize>0){ ?>
-                                    <div id="carouselExampleIndicators" class="carousel slide mb-2"
-                                        data-bs-ride="carousel">
-                                        <div class="carousel-inner rounded bg-secondary">
-                                            <?php for ($i=1; $i <= $ImgListSize; $i++) { ?>
-                                            <div class="carousel-item <?php if($i==1){echo 'active';}?>">
-                                                <img src="./images/<?php echo $_GET['a']."_".($i-1); ?>.jpg"
-                                                class="d-block w-100" alt="Article Image <?php echo $i; ?>">
-                                                <div class="bg-secondary ms-2 rounded-bottom">
-                                                    <small class="text-light">
-                                                        <?php $varr = 'ImgCap'.$i; echo $$varr; ?>
-                                                    </small>
-                                                  </div>
-                                            </div>
-                                            <?php } ?>
-                                        </div>
-                                        <?php if ($ImgListSize>1) { ?>
-                                        <button class="carousel-control-prev" type="button"
-                                            data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button"
-                                            data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
-                                    <?php } ?>
-                                </div>
-                                <?php } ?>
-                                <h3 class="font-weight-600 mb-1">
-                                    <?php echo $Title; ?>
-                                </h3>
-                                <div class="row my-3">
-                                    <div class="col-sm-8  d-none d-md-block ">
-                                        <div class="row">
-                                            <div class="col-2">
-                                                <img src="../assets/img/logoRound.png" style="width: min(16vw, 52px);" style="object-fit:cover;" alt="face" class="rounded-pill me-3">
-                                            </div>
-                                            <div class="col-10 pt-1">
-                                                <h5 class="fw-bold mb-0">Police Darpan<i
-                                                        class="material-icons small text-success ms-1">verified</i>
-                                                </h5>
-                                                <span class="fs-13 text-muted">
-                                                    <?php echo $Category; ?>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-md-4">
-                                        <span class="fs-13 ms-2 fw-bold float-sm-end">
-                                            <?php echo $District; ?>
-                                        </span><br>
-                                        <span class="fs-13 text-muted ms-2 float-sm-end">
-                                            <?php echo $Date; ?>
-                                        </span>
-                                    </div>
-                                <div class="col-6 px-0 d-inline d-lg-none ">
-                                    <!-- AddToAny BEGIN -->
-                                    <div class="float-end a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo $currentUrl; ?>" data-a2a-title="<?php echo $Title; ?>">
-                                    
-                                    <a class="a2a_button_whatsapp"></a>
-                                    <a class="a2a_button_facebook"></a>
-                                    <a class="a2a_button_twitter"></a>
-                                    <a class="a2a_button_linkedin"></a>
-                                    </div>
-                                    <script async src="https://static.addtoany.com/menu/page.js"></script>
-                                    <!-- AddToAny END -->
-                                </div>
-                                </div>
-                                <div class="row ">
-                                <div class="col-12 mb-2 d-none d-lg-block ">
-                                    <!-- AddToAny BEGIN -->
-                                    <div class="float-end a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="<?php echo $currentUrl; ?>" data-a2a-title="<?php echo $Title; ?>">
-                                    
-                                    <a class="a2a_button_whatsapp"></a>
-                                    <a class="a2a_button_facebook"></a>
-                                    <a class="a2a_button_twitter"></a>
-                                    <a class="a2a_button_linkedin"></a>
-                                    </div>
-                                    <script async src="https://static.addtoany.com/menu/page.js"></script>
-                                    <!-- AddToAny END -->
-                                </div></div>
-                                <p class="mb-4 fs-15">
-                                    <?php echo $Article; ?>
-                                </p>
-                                <?php getWriterDetails($WriterId) ?>
-                                <div class="testimonial rounded">
-                                    <div class="d-lg-flex justify-content-between align-items-center">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="rotate-img">
-                                            <?php if ($ProfilePicture==1) { ?>
-                                                <img src="/images/thumbnail/<?php echo $WriterId."_0"; ?>.jpg" style="object-fit:cover;" class="rounded-pill me-2" width="54px" height="54px" alt="Profile">
-                                            <?php } else { ?>
-                                                <img src="../assets/img/logoRound.png" width="54px" height="54px" style="object-fit:cover;" alt="Profile" class="rounded-pill me-3  me-2">
-                                            <?php } ?>
-                                                
-                                            </div>
-                                            <div>
-                                                <p class="small mb-1 line-height-xs">
-                                                Of the Author
-                                                </p>
-                                                <p class="fs-5 fw-bolder mb-0 line-height-xs">
-                                                <?php echo $First_Name." ".$Middle_Name." ".$Last_Name; ?>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="mb-3">
-                                                <p class="small fw-bold mb-1 line-height-xs">
-                                                <?php echo $City; ?>
-                                                </p>
-                                                <p class="fs-6 fw-bold mb-0 line-height-xs">
-                                                <?php echo $Phone; ?>
-                                                </p>
-                                            </div>
-                                    </div>
-                                    <p class="fs-12">
-                                        A popular news reporter at Police Darpan. For any news in <?php echo $City; ?> please contact the reporter.
-                                        You can also write at <i>editor@policedarpannews.in</i> to the editor Police Darpan.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card">
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card aos-init aos-animate" data-aos="fade-up">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="trending">
-                                <h4 class="mb-4 text-primary font-weight-600">
-                                    Trending
-                                </h4>
-                                <?php for ($i=0; $i < 3; $i++) { articleData($trendsIds[$i]);?>
-                                <div role="button" title="Click to Read More"
-                                    onclick="window.location.href ='./article.php?a=<?php echo $trendsIds[$i]; ?>'"
-                                    class="mb-4">
-                                    <div class="ratio ratio-16x9">
-                                        <img src="<?php echo $thumbnailUrl; ?>" style="object-fit: cover;" alt="banner"
-                                            class="img-fluid" />
+                        <div class="aboutus-wrapper">
+                            <h1 class="mt-3 text-center mb-5">
+                                Contact Us
+                            </h1>
+                            <div class="row">
+                                <div class="col-lg-12 mb-5 mb-sm-2">
+                                    <div class="row mb-5">
+                                        <div class="col-sm-6 d-none d-md-inline ps-5">
+                                            <div class="ps-5">
+                                                <img src="./assets/img/img-01.webp" alt="message">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="mb-2">
+                                                <div class="mb-2">
+                                                    <span class="material-icons align-text-bottom">call</span> <span
+                                                        class="align-top fw-bold">Phone Number</span>
+                                                    <p class="text-muted ms-5">+91 86992 16000</p>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="mb-2">
+                                                    <span class="material-icons align-text-bottom">email</span> <span
+                                                        class="align-top fw-bold">E-Mail</span>
+                                                        <p class="text-muted ms-5">contact@policedarpannews.in</p>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <div class="mb-2">
+                                                    <span class="material-icons align-text-bottom">apartment</span>
+                                                    <span class="align-top fw-bold">Address</span>
+                                                    <p class="text-muted ms-5">Police Darpan,
+                                                        HO 485, near Singh Sabha Gurudawara, Alipur, Mithapur, Jalandhar, Punjab 144022</p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <h5 class="mt-3 font-weight-600">
-                                        <?php echo $Title; ?>
-                                    </h5>
-                                    <p class="fs-6 text-muted mb-0">
-                                        <span class="mr-2">
-                                            <?php echo $District; ?>
-                                        </span>
-                                        <?php echo $Date; ?>
-                                    </p>
+
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3409.7925396369437!2d75.57352151477872!3d31.28183328144902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a5a4b6c4bf45d%3A0xda33cc3c33676443!2sPolice%20Darpan!5e0!3m2!1sen!2sin!4v1676576792543!5m2!1sen!2sin"
+                                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
-                                <?php $idCounter++; } ?>
                             </div>
                         </div>
                     </div>
@@ -439,10 +274,7 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
+
     <div class="container-fluid text-light footer">
         <div class="container">
             <div class="row mb-4">
@@ -477,7 +309,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="float-end mb-4">
-                        <a class="me-2" href="./Admin">
+                        <a class="me-2" href="./Admin/">
                             <span class="text-light border-end border-secondary pe-3">Admin Login</span>
                         </a>
                         <a href="#">
@@ -512,62 +344,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        "use strict";
-        document.addEventListener('DOMContentLoaded', function () {
-            // Activate only if not already activated
-            if (window.hideYTActivated) return;
-            // Activate on all players
-            let onYouTubeIframeAPIReadyCallbacks = [];
-            for (let playerWrap of document.querySelectorAll(".hytPlayerWrap")) {
-                let playerFrame = playerWrap.querySelector("iframe");
-
-                let tag = document.createElement('script');
-                tag.src = "https://www.youtube.com/iframe_api";
-                let firstScriptTag = document.getElementsByTagName('script')[0];
-                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-                let onPlayerStateChange = function (event) {
-                    if (event.data == YT.PlayerState.ENDED) {
-                        playerWrap.classList.add("ended");
-                    } else if (event.data == YT.PlayerState.PAUSED) {
-                        playerWrap.classList.add("paused");
-                    } else if (event.data == YT.PlayerState.PLAYING) {
-                        playerWrap.classList.remove("ended");
-                        playerWrap.classList.remove("paused");
-                    }
-                };
-
-                let player;
-                onYouTubeIframeAPIReadyCallbacks.push(function () {
-                    player = new YT.Player(playerFrame, {
-                        events: {
-                            'onStateChange': onPlayerStateChange
-                        }
-                    });
-                });
-
-                playerWrap.addEventListener("click", function () {
-                    let playerState = player.getPlayerState();
-                    if (playerState == YT.PlayerState.ENDED) {
-                        player.seekTo(0);
-                    } else if (playerState == YT.PlayerState.PAUSED) {
-                        player.playVideo();
-                    }
-                });
-            }
-
-            window.onYouTubeIframeAPIReady = function () {
-                for (let callback of onYouTubeIframeAPIReadyCallbacks) {
-                    callback();
-                }
-            };
-
-            window.hideYTActivated = true;
-        });
-    </script>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"
         integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="

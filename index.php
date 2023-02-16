@@ -128,7 +128,7 @@
                 <a class="nav-link text-light" href="#">Travel</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="#">Contact</a>
+                <a class="nav-link text-light" href="./contact.php">Contact</a>
               </li>
             </ul>
             <div class="d-flex float-end">
@@ -190,6 +190,9 @@
             <?php }getBreaking('Crime'); if($Id!=''){?>
             <span role="button" title="Click to Read More" onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
             <span class="badge bg-dark mx-2">Crime</span> <?php echo $Title ?></span>
+            <?php }getBreaking('Religion'); if($Id!=''){?>
+            <span role="button" title="Click to Read More" onclick="window.location.href ='./article.php?a=<?php echo $Id; ?>'">
+            <span class="badge bg-dark mx-2">Religion</span> <?php echo $Title ?> </span>
             <?php } ?>
           </marquee>
         </div>
@@ -294,7 +297,7 @@
               <div class="col-sm-4 grid-margin">
                 <div class="position-relative">
                   <div class="news-img">
-                    <div class="ratio ratio-16x9">
+                    <div class="ratio ratio-16x9 mb-2">
                       <img src="<?php echo $thumbnailUrl; if($thumbnailUrl==''){echo './assets/img/logoRound.png';} ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
                     </div>
                   </div>
@@ -545,7 +548,7 @@
               <div class="col-sm-4 grid-margin">
                 <div class="position-relative">
                   <div class="news-img">
-                    <div class="ratio ratio-16x9">
+                    <div class="ratio ratio-16x9 mb-2">
                       <img src="<?php echo $thumbnailUrl; if($thumbnailUrl==''){echo './assets/img/logoRound.png';} ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
                     </div>
                   </div>
