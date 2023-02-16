@@ -12,8 +12,8 @@
         $newsIds = array();
 
         // Query Working
-        $sql = "SELECT id FROM `Articles` WHERE `Status`='Saved' AND `ImgListSize` > 0 ORDER BY `Date` DESC,`Views` DESC LIMIT 30 OFFSET $offset;";
-
+        $sql = "SELECT id FROM `Articles` WHERE `Status`='Saved' AND (`ImgListSize` > 0 OR `YoutubeId` <> '') ORDER BY `Date` DESC,`Views` DESC LIMIT 30 OFFSET $offset;";
+echo $sql;
         $result = mysqli_query($conn,$sql);
 
         if (!$result) {
@@ -37,7 +37,7 @@
         $newsNoImgIds = array();
 
         // Query Working
-        $sql = "SELECT id FROM `Articles` WHERE `Status`='Saved' AND `ImgListSize` = 0 ORDER BY `Date` DESC,`Views` DESC LIMIT 10 OFFSET $offset;";
+        $sql = "SELECT id FROM `Articles` WHERE `Status`='Saved' AND `ImgListSize` = 0 AND `ImgListSize` = 0 AND `YoutubeId` = '' ORDER BY `Date` DESC,`Views` DESC LIMIT 10 OFFSET $offset;";
 
         $result = mysqli_query($conn,$sql);
 
