@@ -330,9 +330,9 @@
         $conn = OpenCon();
 
         $sql = 'INSERT INTO users'. 
-           '(`ID`, `First_Name`, `Middle_Name`, `Last_Name`, `Access`, `Role`, `Email`, `Phone`,`Password`,`Address`,`City`,`State`'.$Pindata.') '.
-           'VALUES ("'.$ID.'", "'.$First_Name.'", "'.$Middle_Name.'", "'.$Last_Name.'", "'.$Access.'", "'.$Role.'", "'.$Email.'", "'.$Phone.'", "'.$Password.'", "'.$Address.'", "'.$City.'", "'.$State.'"'.$PinVal.')';
-        echo $sql;
+           '(`ID`, `First_Name`, `Middle_Name`, `Last_Name`, `Access`, `Role`, `DOB`, `BloodGroup`, `Email`, `Phone`,`Password`,`Address`,`City`,`State`'.$Pindata.') '.
+           'VALUES ("'.$ID.'", "'.$First_Name.'", "'.$Middle_Name.'", "'.$Last_Name.'", "'.$Access.'", "'.$Role.'", "'.$DOB.'", "'.$BloodGroup.'", "'.$Email.'", "'.$Phone.'", "'.$Password.'", "'.$Address.'", "'.$City.'", "'.$State.'"'.$PinVal.')';
+        
         $retval = mysqli_query( $conn, $sql);
         
         if(! $retval ) {
