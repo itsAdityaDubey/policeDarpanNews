@@ -12,7 +12,7 @@
         $newsIds = array();
 
         // Query Working
-        $sql = "SELECT id FROM `Articles` WHERE `Status`='Saved' ORDER BY `Date` DESC,`Views` DESC LIMIT 25 OFFSET $offset;";
+        $sql = "SELECT id FROM `Articles` WHERE `Status`='Saved' AND `ImgListSize` > 0 ORDER BY `Date` DESC,`Views` DESC LIMIT 30 OFFSET $offset;";
 
         $result = mysqli_query($conn,$sql);
 
@@ -25,7 +25,32 @@
             array_push($newsIds,$row['id']);
         }
         
-        $offset+=25;
+        $offset+=30;
+        CloseCon($conn);
+    }
+    function getNoImgArticleIds($offset='0')
+    {
+        $conn = OpenCon();
+
+        global $newsNoImgIds;
+
+        $newsNoImgIds = array();
+
+        // Query Working
+        $sql = "SELECT id FROM `Articles` WHERE `Status`='Saved' AND `ImgListSize` = 0 ORDER BY `Date` DESC,`Views` DESC LIMIT 10 OFFSET $offset;";
+
+        $result = mysqli_query($conn,$sql);
+
+        if (!$result) {
+        echo "Could not successfully run query ($sql) from DB: " . mysqli_error();
+        exit;
+        }
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            array_push($newsNoImgIds,$row['id']);
+        }
+        
+        $offset+=10;
         CloseCon($conn);
     }
     function getTrandingIds($limit='0')

@@ -326,6 +326,7 @@
         </div>
       </div>
     </div>
+    <?php getNoImgArticleIds(); $idNoImgCounter=0; ?>
     <div class="row mb-4">
       <div class="col-sm-12">
         <div class="card">
@@ -355,9 +356,9 @@
                       </p>
                     </div>
 
-                    <?php $idCounter++; for ($i=0; $i < 2; $i++) {  articleData($newsIds[$idCounter]);?>
+                    <?php $idCounter++; for ($i=0; $i < 2; $i++) {  articleData($newsNoImgIds[$idNoImgCounter]);?>
                     <div role="button" title="Click to Read More"
-                      onclick="window.location.href ='./article.php?a=<?php echo $newsIds[$idCounter]; ?>'"
+                      onclick="window.location.href ='./article.php?a=<?php echo $newsNoImgIds[$idNoImgCounter]; ?>'"
                       class="<?php if($i<1){ ?>border-bottom pb-3 mb-3<?php } ?>">
                       <h4 class="font-weight-600 mb-0">
                         <?php echo $Title; ?>
@@ -370,16 +371,16 @@
                         </small>
                       </p>
                       <p class="mb-0">
-                        <?php if($thumbnailUrl!=''){echo 'Click to watch';}else{echo 'Read More';}; ?>
+                        Read More
                       </p>
                     </div>
-                    <?php $idCounter++; } ?>
+                    <?php $idNoImgCounter++; } ?>
 
                   </div>
                   <div class="col-sm-6">
-                    <?php articleData($newsIds[$idCounter]);?>
+                    <?php articleData($newsNoImgIds[$idNoImgCounter]);?>
                     <div role="button" title="Click to Read More"
-                      onclick="window.location.href ='./article.php?a=<?php echo $newsIds[$idCounter]; ?>'"
+                      onclick="window.location.href ='./article.php?a=<?php echo $newsNoImgIds[$idNoImgCounter]; ?>'"
                       class="border-bottom pb-3 mb-3">
                       <h4 class="font-weight-600 mb-0">
                         <?php echo $Title; ?>
@@ -392,7 +393,7 @@
                         </small>
                       </p>
                       <p class="mb-0">
-                        <?php if($thumbnailUrl!=''){echo 'Click to watch';}else{echo 'Read More';}; ?>
+                        Read More
                       </p>
                     </div>
 
@@ -417,9 +418,9 @@
                       </p>
                     </div>
 
-                    <?php $idCounter++; articleData($newsIds[$idCounter]);?>
+                    <?php $idNoImgCounter++; articleData($newsNoImgIds[$idNoImgCounter]);?>
                     <div role="button" title="Click to Read More"
-                    onclick="window.location.href ='./article.php?a=<?php echo $newsIds[$idCounter]; ?>'" class="">
+                    onclick="window.location.href ='./article.php?a=<?php echo $newsNoImgIds[$idNoImgCounter]; ?>'" class="">
                       <h4 class="font-weight-600 mb-0">
                         <?php echo $Title; ?>
                       </h4>
@@ -431,7 +432,7 @@
                         </small>
                       </p>
                       <p class="mb-0">
-                        <?php if($thumbnailUrl!=''){echo 'Click to watch';}else{echo 'Read More';}; ?>
+                        Read More
                       </p>
                     </div>
 
@@ -462,9 +463,9 @@
                       </p>
                     </div>
 
-                    <?php  $idCounter++; for ($i=0; $i < 2; $i++) { articleData($newsIds[$idCounter]);?>
+                    <?php for ($i=0; $i < 2; $i++) { articleData($newsNoImgIds[$idNoImgCounter]);?>
                     <div role="button" title="Click to Read More"
-                      onclick="window.location.href ='./article.php?a=<?php echo $newsIds[$idCounter]; ?>'"
+                      onclick="window.location.href ='./article.php?a=<?php echo $newsNoImgIds[$idNoImgCounter]; ?>'"
                       class="<?php if($i<1){ ?>border-bottom pb-3 mb-3<?php } ?>">
                       <h4 class="font-weight-600 mb-0">
                         <?php echo $Title; ?>
@@ -477,16 +478,16 @@
                         </small>
                       </p>
                       <p class="mb-0">
-                        <?php if($thumbnailUrl!=''){echo 'Click to watch';}else{echo 'Read More';}; ?>
+                        Read More
                       </p>
                     </div>
-                    <?php $idCounter++; } ?>
+                    <?php $idNoImgCounter++; } ?>
 
                   </div>
                   <div class="col-sm-6">
-                    <?php for ($i=0; $i < 2; $i++) {  articleData($newsIds[$idCounter]);?>
+                    <?php for ($i=0; $i < 2; $i++) {  articleData($newsNoImgIds[$idNoImgCounter]);?>
                     <div role="button" title="Click to Read More"
-                      onclick="window.location.href ='./article.php?a=<?php echo $newsIds[$idCounter]; ?>'"
+                      onclick="window.location.href ='./article.php?a=<?php echo $newsNoImgIds[$idNoImgCounter]; ?>'"
                       class="border-bottom pb-3 mb-3">
                       <h4 class="font-weight-600 mb-0">
                         <?php echo $Title; ?>
@@ -502,7 +503,7 @@
                         <?php if($thumbnailUrl!=''){echo 'Click to watch';}else{echo 'Read More';}; ?>
                       </p>
                     </div>
-                    <?php $idCounter++; } ?>
+                    <?php $idNoImgCounter++; } ?>
 
                     <?php articleData($newsIds[$idCounter]);?>
                     <div role="button" title="Click to Read More"
@@ -529,6 +530,90 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body pb-0 p-4">
+            <?php for ($i=0; $i < 6; $i++) {  articleData($newsIds[$idCounter]);?>
+            <div role="button" title="Click to Read More"
+              onclick="window.location.href ='./article.php?a=<?php echo $newsIds[$idCounter]; ?>'"
+              class="row mb-3 pb-3 <?php if($i<5){ ?>border-bottom<?php } ?>">
+              <div class="col-sm-4 grid-margin">
+                <div class="position-relative">
+                  <div class="news-img">
+                    <div class="ratio ratio-16x9">
+                      <img src="<?php echo $thumbnailUrl; if($thumbnailUrl==''){echo './assets/img/logoRound.png';} ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
+                    </div>
+                  </div>
+                  <div class="badge-positioned">
+                    <span class="badge bg-danger font-weight-bold">
+                      <?php echo $Category; ?>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8  grid-margin">
+                <h3 class="mb-2 font-weight-600">
+                  <?php echo $Title; ?>
+                </h3>
+                <p class="text-muted mb-0">
+                  <small class="me-3">
+                    <?php echo $District; ?>
+                  </small> <small>
+                    <?php echo $Date; ?>
+                  </small>
+                </p>
+                <p class="mt-2 mb-0">
+                  Read More
+                </p>
+              </div>
+            </div>
+            <?php $idCounter++; } ?>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body pb-0 p-4">
+            <?php for ($i=0; $i < 6; $i++) {  articleData($newsIds[$idCounter]);?>
+            <div role="button" title="Click to Read More"
+              onclick="window.location.href ='./article.php?a=<?php echo $newsIds[$idCounter]; ?>'"
+              class="row mb-3 pb-3 <?php if($i<5){ ?>border-bottom<?php } ?>">
+              <div class="col-sm-4 grid-margin">
+                <div class="position-relative">
+                  <div class="news-img">
+                    <div class="ratio ratio-16x9 mb-2">
+                      <img src="<?php echo $thumbnailUrl; if($thumbnailUrl==''){echo './assets/img/logoRound.png';} ?>" style="object-fit: cover;" alt="thumb" class="img-fluid">
+                    </div>
+                  </div>
+                  <div class="badge-positioned">
+                    <span class="badge bg-danger font-weight-bold">
+                      <?php echo $Category; ?>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8  grid-margin">
+                <h4 class="mb-2 font-weight-600">
+                  <?php echo $Title; ?>
+                </h4>
+                <p class="text-muted mb-0">
+                  <small class="me-3">
+                    <?php echo $District; ?>
+                  </small> <small>
+                    <?php echo $Date; ?>
+                  </small>
+                </p>
+                <p class="mt-2 mb-0">
+                  Read More
+                </p>
+              </div>
+            </div>
+            <?php $idCounter++; } ?>
           </div>
         </div>
       </div>
