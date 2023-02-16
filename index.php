@@ -557,9 +557,9 @@
                 </div>
               </div>
               <div class="col-sm-8  grid-margin">
-                <h3 class="mb-2 font-weight-600">
+                <h4 class="mb-2 font-weight-600">
                   <?php echo $Title; ?>
-                </h3>
+                </h4>
                 <p class="text-muted mb-0">
                   <small class="me-3">
                     <?php echo $District; ?>
