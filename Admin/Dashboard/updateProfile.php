@@ -9,6 +9,8 @@ include '../modules/conn.php';
 
    if($_POST){
     $profilePicture = $_POST['profilePicture'];
+    $profileDob = addslashes($_POST['profileDob']);
+    $profileBloodGroup = addslashes($_POST['profileBloodGroup']);
     $profileAddress = addslashes($_POST['profileAddress']);
     $profileCity = addslashes($_POST['profileCity']);
     $profileState = addslashes($_POST['profileState']);
@@ -96,7 +98,7 @@ include '../modules/conn.php';
     $articleCheck=0;
 
     $conn = OpenCon();
-    $sql = "UPDATE `users` SET `ProfilePicture`='$profilePicture',`Address`='$profileAddress',`City`='$profileCity',`State`='$profileState',`PinCode`='$profilePinCode' WHERE `ID`='".$_SESSION['Login_ID']."';";
+    $sql = "UPDATE `users` SET `ProfilePicture`='$profilePicture',`DOB`='$profileDob',`BloodGroup`='$profileBloodGroup',`Address`='$profileAddress',`City`='$profileCity',`State`='$profileState',`PinCode`='$profilePinCode' WHERE `ID`='".$_SESSION['Login_ID']."';";
         $result = mysqli_query($conn,$sql);
     if (!$result) {
         echo "Could not successfully run query ($sql) from DB: " . mysqli_error();

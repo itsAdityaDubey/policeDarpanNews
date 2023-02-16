@@ -140,6 +140,16 @@
                         <?php }  ?>
                       </div>
                   </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputDob">Date of Birth</label>
+                        <input type="date" name="DOB" class="form-control" id="profileDob" value="<?php echo $row['DOB']; ?>" placeholder="Date of Birth" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputbg">Blood Group</label>
+                        <input type="text" name="BloodGroup" class="form-control" id="profileBloodGroup" value="<?php echo $row['BloodGroup']; ?>" placeholder="Blood Group (A+)" required>
+                      </div>
+                    </div>
                     <div class="form-group">
                       <label for="profileAddress">Address</label>
                       <input type="text" name="Address" class="form-control" id="profileAddress" value="<?php echo $row['Address']; ?>" placeholder="Enter Address">
@@ -461,18 +471,27 @@
         form.append("imagefiles[]", document.getElementById('pro-image').files[index]);
         form.append("imgCap"+(index+1), $('#img-cap-'+(index+1)).val());
       }
+      let profileDob =  $('#profileDob').val();
+      let profileBloodGroup =  $('#profileBloodGroup').val();
       let profileAddress =  $('#profileAddress').val();
       let profileCity =  $('#profileCity').val();
       let profileState = $('#profileState').val();
       let profilePinCode =  $('#profilePinCode').val();
       let profilePicture =  $('#profilePicture').val();
 
-      if (profileAddress=='') {alert('Address cannot be empty');return 0;}
+      if (profileDob=='') {alert('Date of Birth cannot be empty');return 0;}
+      if (profileBloodGroup=='') {alert('Blood Group cannot be empty');return 0;}
       else if (profileCity=='') {alert('City cannot be empty');return 0;}
       else if (profileState=='') {alert('Please select a State');return 0;}
       else if (profilePinCode=='') {alert('Pin Code cannot be empty');return 0;}
 
       form.append("profilePicture", profilePicture);
+
+      $('#profileDob').prop( "disabled", true );
+      form.append("profileDob", profileDob);
+
+      $('#profileBloodGroup').prop( "disabled", true );
+      form.append("profileBloodGroup", profileBloodGroup);
 
       $('#profileAddress').prop( "disabled", true );
       form.append("profileAddress", profileAddress);
