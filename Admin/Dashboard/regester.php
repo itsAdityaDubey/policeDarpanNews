@@ -196,6 +196,16 @@
                         <input type="text" name="Role" class="form-control" id="input4" placeholder="Role" required>
                       </div>
                     </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-6">
+                        <label for="inputDob">Date of Birth</label>
+                        <input type="date" name="DOB" class="form-control" id="inputDob" placeholder="Date of Birth" required>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="inputbg">Blood Group</label>
+                        <input type="text" name="BloodGroup" class="form-control" id="inputbg" placeholder="Blood Group (A+)" required>
+                      </div>
+                    </div>
                     <div class="form-group">
                       <label for="inputAddress">Address</label>
                       <input type="text" name="Address" class="form-control" id="inputAddress" placeholder="Enter Address">
@@ -306,6 +316,8 @@
         $Phone = $_POST['Phone'];
         $Access = $_POST['Access'];
         $Role = $_POST['Role'];
+        $DOB = $_POST['DOB'];
+        $BloodGroup = $_POST['BloodGroup'];
         $Address = $_POST['Address'];
         $City = $_POST['City'];
         $State = $_POST['State'];

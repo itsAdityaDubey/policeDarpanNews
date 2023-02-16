@@ -96,7 +96,7 @@
           <img src="../assets/img/logoRound.png" class="rounded-pill" width="24px" height="24px" alt="Profile">
           <?php
             $conn = OpenCon();
-            $sql = "SELECT Role,Email,Phone,First_Name,Middle_Name,Last_Name,Access,Address,City,State,PinCode,ProfilePicture
+            $sql = "SELECT Role,Email,Phone,First_Name,Middle_Name,Last_Name,Access,DOB,BloodGroup,Address,City,State,PinCode,ProfilePicture
                 FROM   users
                 WHERE ID = '".$_SESSION['Login_ID']."'";
                 $result = mysqli_query($conn,$sql);
@@ -258,8 +258,6 @@
         <div class="col-md-12">
           <div class="card border-0 div-shadow">
             <div class="card-body ">
-
-
             <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card shadow-sm">
@@ -278,7 +276,13 @@
                       <?php echo $row['Access']; ?>
                       </p>
                       <p class="text-muted font-size-sm">( <?php echo $row['Role']; ?> )</p>
-                      <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#changePassword">
+                      <button type="button" class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#editProfile">
+                      <div class="spinner-border spinner-border-sm text-primary" id="editProfileLoader" style="display: none;" role="status">
+                        <span class="sr-only">Updating...</span>
+                      </div>
+                      <span class="material-icons" id="editProfileDefault">edit_square</span> Edit Profile
+                      </button>
+                      <button type="button" class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#changePassword">
                       <span class="material-icons">lock_reset</span> Change Password
                       </button>
                     </div>
@@ -289,21 +293,30 @@
             <div class="col-md-8">
               <div class="card  shadow-sm mb-3">
                 <div class="card-body">
-                  <div class="row mb-2 px-2">
-                    <div class="col-12 px-0">
-                      <button type="button" class="btn btn-sm float-right btn-outline-primary" data-toggle="modal" data-target="#editProfile">
-                      <div class="spinner-border spinner-border-sm text-primary" id="editProfileLoader" style="display: none;" role="status">
-                        <span class="sr-only">Updating...</span>
-                      </div>
-                      <span class="material-icons" id="editProfileDefault">edit_square</span> Edit Profile
-                      </button></div>
-                  </div>
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Full Name</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                     <?php echo $row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name']; ?>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Date of Birth</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <?php echo $row['DOB']; ?>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Blood Group</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <?php echo $row['BloodGroup']; ?>
                     </div>
                   </div>
                   <hr>
