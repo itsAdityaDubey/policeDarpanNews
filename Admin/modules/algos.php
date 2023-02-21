@@ -18,6 +18,7 @@
             global $ImgListSize;
             global $YoutubeId;
             global $Date;
+            global $State;
             global $District;
             global $Category;
             global $ImgCap1;
@@ -31,6 +32,7 @@
             $ImgListSize = $row['ImgListSize'];
             $YoutubeId = $row['YoutubeId'];
             $Date = $row['Date'];
+            $State = $row['State'];
             $District = $row['District'];
             $Category = $row['Category'];
             $ImgCap1=$row['ImgCap1'];

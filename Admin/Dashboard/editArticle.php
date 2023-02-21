@@ -12,6 +12,7 @@ include '../modules/conn.php';
     $articleId = addslashes($_POST['articleId']);
     $youtubeId = addslashes($_POST['youtubeId']);
     $articleTitle = addslashes($_POST['articleTitle']);
+    $articleState = addslashes($_POST['articleState']);
     $articleDistrict = addslashes($_POST['articleDistrict']);
     $articleCategory = addslashes($_POST['articleCategory']);
     $youtubeId = addslashes($_POST['youtubeId']);
@@ -74,7 +75,7 @@ include '../modules/conn.php';
         $filename = $_FILES['imagefiles']['name'][$index];
     
         // Valid extension
-        $valid_ext = array('png','jpeg','jpg');
+        $valid_ext = array('png','jpeg','jpg', 'gif');
 
         // file extension
         $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -114,7 +115,7 @@ include '../modules/conn.php';
     $articleCheck=0;
 
     $conn = OpenCon();
-    $sql = "UPDATE `Articles` SET `Title`='$articleTitle', `Article`='$articleData', `District`='$articleDistrict', `Category`='$articleCategory', `Status`='$articleStatus', `ImgListSize`='$noImgs', `ImgCap1`='$ImgCap1', `ImgCap2`='$ImgCap2', `ImgCap3`='$ImgCap3', `ImgCap4`='$ImgCap4', `ImgCap5`='$ImgCap5', `YoutubeId`='$youtubeId'
+    $sql = "UPDATE `Articles` SET `Title`='$articleTitle', `Article`='$articleData', `State`='$articleState', `District`='$articleDistrict', `Category`='$articleCategory', `Status`='$articleStatus', `ImgListSize`='$noImgs', `ImgCap1`='$ImgCap1', `ImgCap2`='$ImgCap2', `ImgCap3`='$ImgCap3', `ImgCap4`='$ImgCap4', `ImgCap5`='$ImgCap5', `YoutubeId`='$youtubeId'
     WHERE `Id`= '$articleId'";
         $result = mysqli_query($conn,$sql);
     if (!$result) {

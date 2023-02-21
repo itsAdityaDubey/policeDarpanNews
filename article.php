@@ -40,6 +40,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="canonical" href="<?php echo $currentUrl; ?>">
     <style>
+        body {
+        -webkit-user-select: none;
+            -moz-user-select: -moz-none;
+            -ms-user-select: none;
+                user-select: none;
+        }
         .hytPlayerWrap {
             display: inline-block;
             position: relative;
@@ -575,6 +581,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            $(document).ready(function() {
+                $('body').bind('copy paste cut drag drop', function (e) {
+                    e.preventDefault();
+                });
+                $("body").on("contextmenu", function(e) {
+                    return false;
+                });
+            });
+    </script>
     <script src="assets/js/main.js"></script>
 
 </body>

@@ -57,7 +57,7 @@ include '../modules/conn.php';
         $filename = $_FILES['imagefiles']['name'][$index];
     
         // Valid extension
-        $valid_ext = array('png','jpeg','jpg');
+        $valid_ext = array('png','jpeg','jpg', 'gif');
 
         // file extension
         $file_extension = pathinfo($filename, PATHINFO_EXTENSION);

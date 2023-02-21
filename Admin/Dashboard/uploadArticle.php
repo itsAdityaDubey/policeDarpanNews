@@ -11,6 +11,7 @@ include '../modules/conn.php';
     $articleId = addslashes($_POST['articleId']);
     $youtubeId = addslashes($_POST['youtubeId']);
     $articleTitle = addslashes($_POST['articleTitle']);
+    $articleState = addslashes($_POST['articleState']);
     $articleDistrict = addslashes($_POST['articleDistrict']);
     $articleCategory = addslashes($_POST['articleCategory']);
     $youtubeId = addslashes($_POST['youtubeId']);
@@ -61,7 +62,7 @@ include '../modules/conn.php';
         $filename = $_FILES['imagefiles']['name'][$index];
     
         // Valid extension
-        $valid_ext = array('png','jpeg','jpg');
+        $valid_ext = array('png','jpeg','jpg', 'gif');
 
         // file extension
         $file_extension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -102,8 +103,8 @@ include '../modules/conn.php';
     $articleCheck=0;
 
     $conn = OpenCon();
-    $sql = "INSERT INTO `Articles`(`Id`, `Title`, `Article`, `District`, `Category`, `Date`, `Status`, `ImgListSize`, `ImgCap1`, `ImgCap2`, `ImgCap3`, `ImgCap4`, `ImgCap5`, `YoutubeId`, `WriterId`) 
-    VALUES ('$articleId','$articleTitle','$articleData','$articleDistrict','$articleCategory', '".date("Y-m-d")."','$articleStatus','$noImgs','$ImgCap1','$ImgCap2','$ImgCap3','$ImgCap4','$ImgCap5','$youtubeId','".$_SESSION["memberId"]."')";
+    $sql = "INSERT INTO `Articles`(`Id`, `Title`, `Article`, `State`, `District`, `Category`, `Date`, `Status`, `ImgListSize`, `ImgCap1`, `ImgCap2`, `ImgCap3`, `ImgCap4`, `ImgCap5`, `YoutubeId`, `WriterId`) 
+    VALUES ('$articleId','$articleTitle','$articleData', '$articleState','$articleDistrict','$articleCategory', '".date("Y-m-d")."','$articleStatus','$noImgs','$ImgCap1','$ImgCap2','$ImgCap3','$ImgCap4','$ImgCap5','$youtubeId','".$_SESSION["memberId"]."')";
         $result = mysqli_query($conn,$sql);
     if (!$result) {
         echo "Could not successfully run query ($sql) from DB: " . mysqli_error();

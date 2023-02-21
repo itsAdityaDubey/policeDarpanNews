@@ -88,7 +88,7 @@
         global $District; 
         global $Category;
 
-        $sql = "SELECT Title, ImgListSize, YoutubeId, Date, District, Category FROM `Articles` WHERE `Id`='$id';";
+        $sql = "SELECT Title, ImgListSize, YoutubeId, Date, State, District, Category FROM `Articles` WHERE `Id`='$id';";
 
         $result = mysqli_query($conn,$sql);
 
@@ -102,7 +102,11 @@
         $ImgListSize = $row['ImgListSize'];
         $YoutubeId = $row['YoutubeId'];
         $Date = $row['Date'];
+        $State = $row['State'];
         $District = $row['District'];
+        if ($District == "All") {
+            $District = $State;
+        }
         $Category = $row['Category'];
 
         if ($YoutubeId!='') {
@@ -190,7 +194,11 @@
         $ImgListSize = $row['ImgListSize'];
         $YoutubeId = $row['YoutubeId'];
         $Date = $row['Date'];
+        $State = $row['State'];
         $District = $row['District'];
+        if ($District == "All") {
+            $District = $State;
+        }
         $Category = $row['Category'];
         $ImgCap1=$row['ImgCap1'];
         $ImgCap2=$row['ImgCap2'];
