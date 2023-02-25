@@ -14,7 +14,7 @@ list($img_width, $img_height,,) = getimagesize('Certificate.png');
 
 $font ='GreatVibes-Regular.ttf';
 $text = $row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'];
-$font_size = 0; 
+$font_size = 100; 
 $txt_max_width = intval(0.5 * $img_width);    
 $txt_max_height = intval(0.08 * $img_width);    
 
@@ -24,7 +24,7 @@ do {
     $txt_width = $p[2] - $p[0];
     $txt_height=$p[1]-$p[7]; // just in case you need it
 } while ($txt_width <= $txt_max_width && $txt_height <= $txt_max_height);
-
+echo $font_size."\n"; 
 $y = $img_height * 0.57;
 $x = ($img_width - $txt_width) / 2;
 
