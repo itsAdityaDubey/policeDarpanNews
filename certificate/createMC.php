@@ -1,5 +1,5 @@
 <?php
-$ID = '63cd9c3e730a1';
+$ID = '63cd9c3e730a';
 $file_name='Certificate.png';
 require 'config.php';
 $sql="SELECT `First_Name`, `Middle_Name`, `Last_Name` FROM `users` WHERE `ID` = '$ID' AND `ProfilePicture` = 1";
