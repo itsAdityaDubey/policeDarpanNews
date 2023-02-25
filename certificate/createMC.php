@@ -17,7 +17,7 @@ $nameColor=imagecolorallocate($img_source,226,190,118);
 
 list($img_width, $img_height,,) = getimagesize('Certificate.png');
 
-$font ='GreatVibes-Regular.ttf';
+$font = $dir.$sep.'GreatVibes-Regular.ttf';
 $text = $row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'];
 $font_size = 100; 
 $txt_max_width = intval(0.5 * $img_width);    
@@ -33,7 +33,7 @@ $x=552;
 $y=1100;
 $today=new DateTime;
 $str_date=$today->format('d-m-Y');
-$font ='Poppins-MediumItalic.ttf';
+$font = $dir.$sep.'Poppins-MediumItalic.ttf';
 imagettftext($img_source, 28,0,$x,$y,$whiteColor, $font, $str_date);
 
 // adding QR code
