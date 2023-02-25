@@ -2,7 +2,7 @@
 $host_name = "localhost";
 $database = "news"; // Change your database name
 $username = "root";        // Your database user id 
-$password = "pSBNVz2TpBMEiR";
+$password = "";
 
 //////// Do not Edit below /////////
 try {
