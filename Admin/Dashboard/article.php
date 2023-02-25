@@ -359,6 +359,7 @@
                         <option value="Religion">	Religion</option>
                         <option value="Business">	Business</option>
                         <option value="Sports">	Sports</option>
+                        <option value="Education">	Education</option>
                         <option value="Travel">	Travel</option>
                         <option value="Tecnology">	Tecnology</option>
                         <option value="Entertainment">	Entertainment</option>
