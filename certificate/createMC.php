@@ -41,6 +41,7 @@ imagettftext($img_source, 28,0,$x,$y,$whiteColor, $font, $str_date);
 // add profile picture
 
 $file = "../images/thumbnail/".$ID."_0.jpg";
+echo $file;
 $size = getimagesize($file);
 $im = imagecreatefromjpeg($file);
 
