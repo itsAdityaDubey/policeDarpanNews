@@ -18,15 +18,9 @@ $font_size = 100;
 $txt_max_width = intval(0.5 * $img_width);    
 $txt_max_height = intval(0.08 * $img_width);    
 
-do {        
-    $font_size++;
-    $p = imagettfbbox($font_size, 0, $font, $text);
-    $txt_width = $p[2] - $p[0];
-    $txt_height=$p[1]-$p[7]; // just in case you need it
-} while ($txt_width <= $txt_max_width && $txt_height <= $txt_max_height);
-echo $font_size."\n"; 
+$p = imagettfbbox($font_size, 0, $font, $text);
 $y = $img_height * 0.57;
-$x = ($img_width - $txt_width) / 2;
+$x = ($img_width - $p[2]) / 2;
 
 imagettftext($img_source, $font_size, 0, $x, $y, $nameColor, $font, $text);
 
