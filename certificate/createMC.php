@@ -1,9 +1,8 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+// error_reporting(E_ALL);
+// ini_set('display_errors', '1');
 $dir= dirname(realpath(__FILE__));
 $sep=DIRECTORY_SEPARATOR;   
-echo $dir.$sep;
 $ID = '63cd9c3e730a1';
 $file_name='Certificate.png';
 require 'config.php';
