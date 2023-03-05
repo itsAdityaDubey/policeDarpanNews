@@ -362,17 +362,19 @@
                   <hr>
                   <div class="row">
                     <div class="col-sm-7 mb-2">
-                      <select class="form-control" id="" disabled>
-                        <option>Select Document</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                      <select class="form-control" id="certificateType" >
+                        <option value="" >Select Document</option>
+                        <option value="Membership" >Membership Certificate</option>
+                        <option value="Card" disabled>Identity Card</option>
+                        <option value="Letter" disabled>Authority Letter</option>
                       </select>
                     </div>
                     <div class="col-sm-5 mb-2 text-secondary">
-                    <button type="button" class="btn btn-outline-primary btn-block" disabled>
-                    <span class="material-icons">download</span> Download
+                    <button type="button" onclick="downloadCertificate()" class="btn btn-outline-primary btn-block" >
+                    <div class="spinner-border spinner-border-sm text-primary" id="certificateLoader" style="display: none;" role="status">
+                        <span class="sr-only">Updating...</span>
+                    </div>
+                    <span class="material-icons" id="certificateDefault">download</span> Download
                       </button>
                     </div>
                   </div>
@@ -459,6 +461,37 @@
     $('#saveProfileBtn').click(function(){
       saveProfile();
     }); 
+    const downloadURI = (uri, name) => {
+      const link = document.createElement("a");
+      link.download = name;
+      link.href = uri;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+    function downloadCertificate() {
+      let type = $('#certificateType').val();
+      if (type == '') {
+        alert("Choose a Document");
+      }else if (type == 'Membership') {
+        $('#certificateLoader').show();
+        $('#certificateDefault').hide();
+        $.ajax({
+            url: "../../certificate/mcert.php",
+            type: "POST",
+            contentType: false,
+            processData:false,
+            success: function(result){
+              console.log(result);
+              if (result == '200 Ok') {
+              downloadURI('../../certificate/Membership/<?php echo $_SESSION['Login_ID']; ?>_Certificate.jpg', 'Cerificate.jpg')
+              $('#certificateLoader').hide();
+              $('#certificateDefault').show();
+              }
+            }
+        });
+      }
+    }
 
     function saveProfile() {
       var form = new FormData();

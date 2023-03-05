@@ -1,10 +1,10 @@
 <?php
 $host_name = "localhost";
-$database = "news"; // Change your database name
-$username = "root";        // Your database user id 
-$password = "pSBNVz2TpBMEiR";        // Your password
+$database = "news";
+$username = "root"; 
+$password = "pSBNVz2TpBMEiR";
 
-//////// Do not Edit below /////////
+
 try {
 $dbo = new PDO('mysql:host='.$host_name.';dbname='.$database, $username, $password);
 } catch (PDOException $e) {
